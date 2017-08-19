@@ -1,0 +1,687 @@
+\documentclass[8pt]{scrartcl}
+\setcounter{secnumdepth}{-1}
+
+\usepackage[%
+hmargin=1.25cm,%
+vmargin=1.25cm,%
+twocolumn,%
+columnsep=1.25cm]%
+{geometry}
+
+\usepackage[overload]{textcase}
+
+\usepackage{%
+  bookman,%
+  etoolbox,%
+  hyperref,%
+  marvosym,%
+  needspace,%
+  tabularx,%
+  xcolor,%
+  amssymb,%
+  multido,%
+  graphicx,%
+  enumitem}
+
+% \setlist[itemize]{leftmargin=*}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian, turkish, english]{babel}
+\addto\extrasturkish{%
+  \uccode`i=\string''9D \uccode\string''19 = `I%
+  \lccode\string''9D=`i \lccode`I=\string''19 }%
+\addto\noextrasturkish{%
+  \uccode`i=`I \lccode`I=`i }
+
+\newcommand{\ding}[1]{{\fontfamily{pzd}\fontencoding{U}%
+    \fontseries{m}\fontshape{n}\selectfont\char#1}}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\color[HTML]{303030} % Default foreground color
+\definecolor{link}{HTML}{506060} % Hyperlinks
+\hypersetup{colorlinks,breaklinks,urlcolor=link,linkcolor=link}
+\setkomafont{disposition}{\color[HTML]{801010}}
+\setkomafont{section}{\scshape\Large\mdseries}
+\newcommand\rating[1]{\multido{}{#1}{$\blacksquare$}}
+\let\oldincludegraphics\includegraphics%
+\renewcommand{\includegraphics}[2][]{%
+  \oldincludegraphics[#1]{#2}%
+  \shorthandon{=}%
+}
+\pretocmd{\includegraphics}{\shorthandoff{=}}{}{}
+
+\newcommand\nameandtitle[2]{%
+  \twocolumn[%
+  \begin{center}
+    \vskip-\lastskip%
+    {\usekomafont{part} #1} \medskip \\%
+    {\fontfamily{pzc}\selectfont\Huge #2}
+    \bigskip
+  \end{center}]}
+
+\let\oldsection\section%
+\renewcommand\section[2][]{%
+  \oldsection[#1]{#2}%
+  \newdimen\raising%
+  \raising=\dimexpr-0.7\baselineskip\relax%
+  \vskip\raising\hrule height 0.4pt\vskip-\raising}
+
+\let\oldsubsection\subsection%
+\renewcommand\subsection[2][]{%
+  \oldsection[#1]{\normalsize #2}%
+  \newdimen\raising%
+  \raising=\dimexpr-0.7\baselineskip\relax%
+  \vskip\raising\hrule height 0.4pt\vskip-\raising}
+
+\newcommand\iflang[3]{%
+  \edef\LANG{\lang}%
+  \edef\PIVOT{\detokenize{#1}}%
+  \ifdefstrequal{\LANG}{\PIVOT}{#2}{#3}%
+}
+
+\newcommand\personal[8]{%
+  \needspace{0.5\textheight}%
+  \newdimen\boxwidth%
+  \boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
+  \colorbox[HTML]{F5DD9D}{%
+    \begin{tabularx}%
+      {\boxwidth}{c|X c}
+      \Writinghand%
+      & {#1}\smallskip \\%
+      \Telefon%
+      & {#2}\smallskip \\%
+      \Lightning%
+      & \href{http://#3}{#3}\smallskip \\%
+      \Letter%
+      & \href{mailto:#4}{#4}\smallskip \\%
+      \Letter%
+      & \href{mailto:#5}{#5}\smallskip \\%
+      \Mundus%
+      & \href{http://www.#6}{#6}\smallskip \\%
+      \Coffeecup%
+      & \href{http://www.#7}{#7}\smallskip \\%
+      \Keyboard%
+      & \href{http://www.#8}{#8}
+    \end{tabularx}}}
+
+\newcommand\textbox[1]{%
+  \parbox{.333\textwidth}{#1}%
+}
+
+\newenvironment{xplist}{%
+  \setlist{nosep}
+  \newcommand\xpitem[4]{%
+    {\color[HTML]{801040}%
+      \sc##2\hfill ##1}\\[2pt]
+    {\Large\textit{##3}
+      \smallskip} \\%
+    {##4\bigskip}%
+
+  }}%
+{\setlist{}}
+
+\newenvironment{yearlist}{%
+  \renewcommand\item[4][]{%
+    {\sc ##2} & {\bfseries ##3} \\
+    \ifstrempty{##1}{}{& {\sc ##1} \\}
+    & {\textit{##4}}\medskip\\}
+  \tabularx{\linewidth}{rX}}%
+{\endtabularx}
+
+\newenvironment{factlist}{%
+  \newdimen\unbaseline%
+  \unbaseline=\dimexpr-\baselinestretch\baselineskip\relax
+  \renewcommand\item[2]{%
+    \textsc{##1} & {\raggedright##2\smallskip\\}\\[\unbaseline]}%
+  \tabularx{\linewidth}{rX}}%
+{\endtabularx}
+
+\def\lang{en}
+\begin{document}\sloppy%
+
+\nameandtitle{Kenan Bölükbaşı\\%
+  {\color{link}\large\foreignlanguage{bulgarian}{%
+      Керан Андреев Давидов | Keran Andreev Davidov}}}%
+{\iflang{en}%
+  {Game Developer \& Designer, CG Generalist, Architect}%
+  {3D Görselleştirme \& Bilgisayar Grafikleri Uzmanı}}
+
+\personal%
+{\iflang{en}%
+  {Kadıköy, İstanbul (Asia) - Turkey}%
+  {Kadıköy, İstanbul (Asya) - Türkiye}}%
+{+90 (542) 5362620}
+{www.6x13.com}%
+{kenanb@6x13.com}%
+{kenanbolukbasi@gmail.com}%
+{blendernetwork.org/kenan-bolukbasi}%
+{twitter.com/kenanbolukbasi}%
+{github.com/kenanb}
+
+\iflang{en}%
+{\section{Summary of Qualifications}}%
+{\section{Meslek\.{ı} N\.{ı}tel\.{ı}kler}} \textcolor{black}{%
+  \iflang{en}%
+  {Theoretical and applied knowledge in programming, design and media.
+    Broad  experience   in  project  management.   Experience   in  3D
+    {\color{link}  (mesh, solid  \& CAD)},  2D {\color{link}  (raster,
+      vector)}, and parametric graphics as well as asset pipelines and
+    tools       development.         Blender       3D       specialist
+    \href{https://www.blendernetwork.org/kenan-bolukbasi}{(Blender
+      Foundation Certified Trainer)}.}%
+  {Durgun/hareketli  mimari,  endüstriyel \&  etkinlik  görselleştirme
+    profesyoneli.   3D modelleme,  doku  oluşturma/atama, materyal  \&
+    shader oluşturma,  aydınlatma, render \& çıktı  işleme, 2D raster,
+    vektör   \&  CAD   grafikleri  oluşturma,   bilgisayar  grafikleri
+    programlama deneyimi.  Tasarımcı \& Mimarlık öğrencisi.}}%
+
+\iflang{en}%
+{\section{Personal Details}}%
+{\section{K\.{ı}ş\.{ı}sel B\.{ı}lg\.{ı}ler}}
+\begin{factlist}
+  \iflang{en}{
+  \item{Citizenship}
+    {Turkish, Bulgarian}
+  \item{Driver's licence}
+    {B Class}
+  \item{Date \& Place of Birth}
+    {28th January 1987, Bulgaria}
+  }{
+  \item{Vatandaşlık}
+    {Türkiye, Bulgaristan}
+  \item{Sürücü Belges\.{ı}}
+    {B Sınıfı}
+  \item{Doğum Tar\.{ı}h\.{ı} \& Yer\.{ı}}
+    {28 Ocak 1987, Bulgaristan}
+  }
+\end{factlist}
+
+\iflang{en}%
+{\section{Education}}%
+{\section{Eğ\.{ı}t\.{ı}m}}
+\begin{yearlist}
+  \iflang{en}{
+  \item{2005 -- 2017}
+    {Architecture (B.Arch.)}
+    {Istanbul Technical University,
+      ITU School of Architecture,
+      İstanbul}
+  \item{2001 -- 2005}
+    {High School (Science and Math)}
+    {Nilüfer Milli Piyango Anatolian High School,
+      Bursa}}%
+  {%
+  \item{Son Sınıf Öğrenc\.{ı}s\.{ı}}
+    {Mimarlık}
+    {İstanbul Teknik Üniversitesi, İstanbul}
+  \item{2001 -- 2005}
+    {Lise}
+    {Nilüfer Milli Piyango Anadolu Lisesi, Bursa}}
+\end{yearlist}
+
+\iflang{en}%
+{\section{Conferences \& Workshops}%
+  \subsection{Talks Given}}%
+{\section{Konferanslar \& Atölyeler}%
+  \subsection{Konuşmalarım}}
+\begin{yearlist}
+\item{2016}%
+  {Toxicity in Gaming: Negative Effects of Prioritizing Player Motivation in World Design}%
+  {ITU School of Architecture, Taşkışla, İstanbul}%
+\item{2014}%
+  {\href{http://youtu.be/E03cFLsoICY}%
+    {Prototyping \& Optimizing Game Asset Workflow}}%
+  {Blender Conference, Amsterdam}%
+\item{2014}%
+  {\href{http://youtu.be/lFymoldmij4}%
+    {Automated Sprite Rendering System in Blender}}%
+  {Libre Graphics Meeting, Leipzig}%
+\item{2014}%
+  {Blender Python Programming Workshop}%
+  {BlendFX Studios, Leipzig}%
+\item{2011}%
+  {AudioSpaces LiveCoding Workshop}%
+  {ITU School of Architecture, Taşkışla, İstanbul}%
+\end{yearlist}
+\iflang{en}%
+{\subsection{Participation}}%
+{\subsection{Konuşmalarım}}
+\begin{yearlist}
+\item{2015}
+  {Game Developers Conference EU 2015 (Cologne)}
+  {UBM Tech}
+\item{2014}
+  {Blender Conference (Amsterdam)}
+  {Blender Foundation}
+\item{2014}
+  {Libre Graphics Meeting (Leipzig)}
+  {LGM Crew}
+\item{2014}
+  {Blender Python Workshop (Leipzig)}
+  {Kenan Bölükbaşı}
+\item{2011}
+  {IAF Compositing Workshop (İstanbul)}
+  {Özgür Gülbir}
+\end{yearlist}
+
+\vfill
+
+\iflang{en}%
+{\section{Work Experience}}%
+{\section{İş Tecrübes\.{ı}}}
+\begin{xplist}
+  \iflang{en}{%
+    \xpitem%
+    {Jan 2015 -- [ cont'd ]}%
+    {6x13 Games, İstanbul}%
+    {Founder, Project Leader \& Developer}{%
+      Project leader.   Game design  \& development.   Graphics design
+      and game asset creation. Prototyping \& workflow optimization.
+      \begin{itemize}
+      \item Game design, artwork and development of WreckJumper (WIP),
+        a  forced-perspective top-down  turn-based strategy  game with
+        dynamic puzzle elements in a sci-fi theme.
+      \item Game design, development,  project management, graphics \&
+        user interface  design of  Twiniwt, the  {\color{red} globally
+          featured} symmetrical movement puzzle.
+      \item Project lead and development of 1FPS Game Series.
+      \item Development of a Cocos2d-x based generic infrastructure to
+        use for cross-platform mobile projects.
+      \item Data structure design and development of the visualization
+        module for an  architectural research project at  ITU. It aims
+        to develop facades using evolutionary algorithms.
+      \item Development of Fossicker, open source asset prospector.
+      \item Guest  speaker at  several Architectural  Design Computing
+        Master's Program classes at ITU.
+      \end{itemize}}%
+    \xpitem%
+    {Aug 2013 -- Jan 2015}%
+    {Ekseriya Studios, İstanbul}%
+    {Graphics Department Lead \& TD}{%
+      Decision making  on graphics  technology and  workflow. Workflow
+      optimization software development.  Game asset creation, shading
+      and lighting. Pipeline integration and prototyping.
+
+      \begin{itemize}
+      \item  Development of  an  asset workflow  \& automation  system
+        (capable  of   lighting,  rendering,  compositing   and  atlas
+        generation) for a mobile real-time strategy game project.
+      \item Environment  art and  map editor  development for  a tower
+        defense game.
+      \item Prototyping  and automation of pseudo-3D  asset generation
+        for a football game.
+      \end{itemize}}%
+    \xpitem%
+    {Jun 2011 -- Feb 2014}%
+    {Freelance, İstanbul}%
+    {Visualization Artist}{%
+      Archviz  for various  firms.   Modeling \&  rendering of  office
+      furniture catalog of Bürosit as well as indoor visualizations.}%
+    \xpitem%
+    {Aug 2011 -- Sep 2011}%
+    {Efor Events \& Simmetrico, Baku}%
+    {Assistant Site Manager}{%
+      Managing the  construction site of  a large steel  structure for
+      the wedding event of daughter  of İlham Aliyev, the President of
+      Azerbaijan,   in   a   multinational   (Italian,   Turkish   and
+      Azerbaijani) environment.}%
+    \xpitem%
+    {Feb 2011 -- Mar 2012}%
+    {SosyalMedya.CO, İstanbul}%
+    {Author}{%
+      Tech  industry-specific reports  and  news.   Opinion pieces  in
+      monthly           electronical            journal.            An
+      \href{http://sosyalmedya.co/google-mustafa-icil/}{interview}
+      with  Mustafa  İçil, former  Turkey  \&  MEA Regional  Marketing
+      Manager of Google.}%
+    \xpitem%
+    {Jul 2010 -- Apr 2013}%
+    {Efor Events, İstanbul}%
+    {Event Supervisor}{%
+      Designing  event  visuals,  workflow and  stageflow  management.
+      Events include: Microsoft Windows  8 Turkey Launch, Kenan Doğulu
+      concert,  trip to  the  Czech  Republic as  part  of VIP  event.
+      Customers include: Microsoft,  TeliaSonera, Huawei, Volvo, Doğuş
+      Holding, Soyak.}%
+    \xpitem%
+    {Sep 2009 -- Nov 2009}%
+    {Aşçıoğlu İnşaat, İstanbul}%
+    {Assistant Site Manager, Internship}{%
+      Application  supervision   at  Acıbadem  Hospital   building  of
+      Selenium Twins (BJK Süleyman Seba Complex) construction site.}%
+    \xpitem%
+    {Mar 2007 -- May 2007}%
+    {ALPO Engineering, İstanbul}%
+    {3D Artist}{%
+      Technical drawings, archviz, urban planning modeling.}}%
+  {%
+    \xpitem%
+    {Ocak 2007 -- ...}%
+    {Freelance, İstanbul}%
+    {3D Görselleştirme Uzmanı}{%
+      Efor  Events, CHRA  Aydınlatma,  ALPO  Mühendislik gibi  çeşitli
+      şirketler için  bağımsız olarak  mimari, endüstriyel  tasarım ve
+      etkinlik alanı görselleri oluşturulması.}%
+    \xpitem%
+    {Haziran 2012 -- Kasım 2012}%
+    {4Yapım, İstanbul}%
+    {Web Arayüz Tasarımcısı}{%
+      \href{http://www.4yapim.com/}{4Yapım}     internet     sitesinin
+      tasarımı ve uygulaması.}%
+    \xpitme%
+    {Ağustos 2011 -- Eylül 2011}%
+    {Efor \& Simmetrico, Bakü}%
+    {Şantiye Şefi Yardımcısı}{%
+      İtalyan,  Türk   ve  Azeri   çalışanlardan  oluşan   bir  ekibin
+      kurulumunda çalıştığı  Azerbaycan Cumhurbaşkanı  İlham Aliyev'in
+      kızının düğün organizasyonu için  kurulan büyük çelik strüktürlü
+      çadırın şantiye yönetimi.}%
+    \xpitem%
+    {Şubat 2011 -- Mart 2012}%
+    {SosyalMedya.CO, İstanbul}%
+    {Editör}{%
+      Röportajlar,  teknolojik   ve  sektörel  içerikli   haber,  köşe
+      yazıları.
+
+      EticaretMag Genel  Yayın Yönetmeni Batuhan Apaydın  ile birlikte
+      hazırlanan   SosyalMedya.Co    bünyesinde   aylık   periyodlarla
+      yayımlanan  e-bülten. Teknolojinin  geleceği  ve dijital  kültür
+      üzerine yazılar. Google Türkiye ve MEA Bölgesel Pazarlama Müdürü
+      Mustafa                         İçil                         ile
+      \href{http://sosyalmedya.co/google-mustafa-icil/}{röportaj}.}%
+    \xpitem%
+    {Temmuz 2010 -- Nisan 2013}%
+    {Efor Events, İstanbul}%
+    {Süpervizör}{%
+      Organizasyon görselleri  tasarımı, iş  ve sahne  akışı yönetimi.
+      Örnek  İşler:  Microsoft  Windows  8  Türkiye  Lansmanı.   Soyak
+      Bahçe\&Bahçe  projesi   Kenan  Doğulu  konseri.    VIP  etkinlik
+      kapsamında  Çek  Cumhuriyeti   gezisi.   Müşteriler:  Microsoft,
+      Volvo, Doğuş Holding, Soyak, TeliaSonera.}%
+    \xpitem%
+    {Eylül 2009 -- Kasım 2009}%
+    {Aşçıoğlu İnşaat, İstanbul}%
+    {Şantiye Şefi Yardımcısı}{%
+      Fulya'da Selenium  Twins (BJK  Süleyman Seba  Kompleksi) inşaatı
+      şantiyesinde  staj.   Acıbadem  Hastanesi saha  şefi  yardımcısı
+      olarak aplikasyon kontrolü ve akış yönetimi.  }%
+    \xpitem%
+    {Mart 2007 -- Mayıs 2007}%
+    {ALPO Mühendislik, İstanbul}%
+    {3D Modelleme Uzmanı}{%
+      Mimari projelerin ve Şehir Planlama projelerinin teknik çizim ve
+      görselleştirmesi.  }%
+    \xpitem%
+    {Ağustos 2006 -- Eylül 2006}%
+    {Efetun İnşaat, Bursa}%
+    {Stajyer Mimar}{%
+      Efetun İnşaat bünyesinde çeşitli  mimari projelerin iş ve ruhsat
+      takibi.}}%
+\end{xplist}
+
+\iflang{en}%
+{\section{Projects \& Recognition}%
+\subsection{Programming Projects}}%
+{\section{Projeler \& Ödüller}%
+\subsection{Yazilim Projeler\.{ı}}}
+\begin{yearlist}
+  \iflang{en}{
+  \item{2017}%
+    {Twiniwt Mobile Game, 6x13 Games}%
+    {An innovative symmetrical movement puzzle.  {\color{red} Globally
+        featured in the  AppStore Puzzle and Board  categories as well
+        as  the  AppStore  Turkey   homepage.}   It  works  everywhere
+      including  all  popular  mobile  and  desktop  platforms.   Uses
+      Cocos2d-x game engine. Written in C and C++.}%
+  \item{2016}%
+    {1FPS Retro Game Series, 6x13 Games}%
+    {3 games  that work  everywhere including  all popular  mobile and
+      desktop platforms. Uses Cocos2d-x game engine. Written in C++.}%
+  \item{2014}%
+    {Riot Game Map Editor, Ekseriya}%
+    {Map editor and importer/exporter  that lets users tile predefined
+      custom assets on a scene,  exporting it and raytracing the scene
+      using Blender Internal Renderer. Written in Python using Blender
+      GE.}%
+  \item{2013}%
+    {Sprite Automation System, Ekseriya}%
+    {A system for  automated game asset creation  workflow. Written in
+      Python and Bourne Shell using Blender Python Module.}%
+  \item{2013}%
+    {Hy Programming Language Blender Integration}%
+    {Blender Python  Module that  integrates Blender with  Hy Language
+      and lets users interactively script Blender using Hy Programming
+      Language. Written in Python and Hy.}%
+  \item{2012}%
+    {CL-IES}%
+    {Parser/reader  and  writer  for IESNA  (Illuminating  Engineering
+      Society   of   North    America)   LM-63   Photometry   Standard
+      files. Written in Common Lisp.}%
+  \item{2011}%
+    {TwitGraph}%
+    {2D   diagram   generator   that  searchs   and   visualizes   the
+      relationships among \#hashtags based on a starting point, namely
+      a \#hashtag. Written in Common Lisp.}%
+  }{
+  \item{Tamamlanmış}%
+    {TwitGraph}%
+    {Twitter   \#hashtag'lerini   tarayıp  aralarındaki   bağlantıları
+      görselleştiren bir  2D diagram  oluşturucu. Common  Lisp dilinde
+      yazıldı.}%
+  \item{Tamamlanmış}%
+    {AudioSpaces Livecoding Workshop}%
+    {Ortamsal sesi tasarım girdisi olarak alan ve sesin yapısına bağlı
+      olarak  yüzeyler   oluşturan,  bu  yüzeylerden   soyut  mekansal
+      kurgular elde etmeyi amaçlayan  bir programlama atölyesi. Scheme
+      dilinde yazıldı. (Kenan Bölükbaşı \& Çağın Sergin)}%
+  \item{Tamamlanmış}%
+    {CL-IES}%
+    {IESNA  LM-63   Fotometri  Standardı  dosyalarını   okuyabilen  ve
+      yazabilen bir yazılım kütüphanesi. Common Lisp dilinde
+      yazıldı.}%
+  }%
+\end{yearlist}
+\iflang{en}%
+{\subsection{Design Projects}}%
+{\subsection{Tasarim Projeler\.{ı}}}
+\begin{yearlist}
+  \iflang{en}{
+  \item{2014}%
+    {StumpWM Window Manager \& HyLang Logos}%
+    {Winner  of StumpWM  Official Logo  Design Contest.  Official logo
+      design of Hy Programming Language.}%
+  \item{2010}%
+    {Çankaya  Ulvi  Cemal  Erkin   Concert  Hall  \&  Cultural  Center
+      Architectural Design Competition}%
+    {Participation (with Gülsev Özbelen \& Gizem Kaya)}%
+  \item{2010}%
+    {Nooka International Watch Design Competition}%
+    {Participation with Nooka Ploog-In Design}%
+  \item{2009}%
+    {Akçansa Concrete Ideas Competition}%
+    {Finalist (with Büşra Atabek)}%
+  }{%
+  \item{2010}%
+    {Çankaya Ulvi  Cemal Erkin Konser  Salonu ve Kültür  Merkezi Proje
+      Yarışması}%
+    {Katılım (Gülsev Özbelen, Gizem Kaya \& Kenan Bölükbaşı)}%
+  \item{2010}%
+    {Nooka Uluslararası Saat Tasarımı Yarışması}%
+    {Katılım - Nooka Ploog-In Model Tasarımı}%
+  \item{2009}%
+    {Akçansa Betonik Fikirler Yarışması}%
+    {Finalist (Büşra Atabek \& Kenan Bölükbaşı)}%
+  }%
+\end{yearlist}
+
+\iflang{en}%
+{\section{Communication skills}%
+  \subsection{English}}%
+{\section{Yabancı D\.{ı}l}%
+  \subsection{İng\.{ı}l\.{ı}zce}}
+\begin{itemize}%
+  \iflang{en}{%
+  \item{Listening: C2 (Mastery)*\\ Reading: C2 (Mastery)*}%
+  \item{Spoken Interaction: C2 (Mastery)*\\%
+      Spoken Production: C1 (Advanced)*}%
+  \item{Writing: C2 (Mastery)*}%
+  \item{Prep Class -- Nilüfer Milli Piyango Anatolian High School\\%
+      Technical English -- ITU\\%
+      Academic Essay Writing -- ITU\\%
+      Research Paper Writing -- ITU}%
+  \item{Work experience in  Baku in a multinational  environment for a
+      month.   Insuring   communication    among   Italian,   Turkish,
+      Azerbaijani and other parties. \\%
+      Work experience in Prague for two weeks.\\%
+      Guidance  to  several  VIP customers  including  top  government
+      officials and corporate executives.\\%
+      Constant   interaction  with   foreign   English  speakers   via
+      technical/social platforms and mail.}%
+  }{%
+  \item{Anlama}{Dinleme: C2 (Mastery)*\\%
+      Okuma: C2 (Mastery)*}%
+  \item{Konuşma}{Sözlü İletişim: C1 (Advanced)*\\%
+      Sözlü Anlatım: C1 (Advanced)*}%
+  \item{Yazma} {C2 (Mastery)*}%
+  \item{Eğitim} {Hazırlık -- Nilüfer Milli Piyango Anadolu Lisesi\\%
+      Teknik İnglizce -- ITU\\%
+      Akademik Makale Yazma -- ITU\\%
+      Araştırma Makalesi Yazma -- ITU}%
+  \item{Prat\.{ı}k}  {Bakü'de çok  milletli bir  ortamda bir  aylık iş
+      tecrübesi.   İtalyan,  Türk,   Azeri  ve   diğer  çeşitli   ülke
+      vatandaşları arasındaki iletişimi sağlama. \\%
+      Prag'da iki haftalık iş tecrübesi.\\%
+      Çeşitli üst düzey devlet  yetkilileri ve şirket yöneticilerinden
+      oluşan VIP konuklara rehberlik.\\%
+      İngilizce  konuşulan teknik/sosyal  platformlar ve  mail yoluyla
+      sürekli İngilizce iletişim.}%
+  }%
+\end{itemize}
+
+\iflang{en}%
+{\subsection{Azerbaijani}}%
+{\subsection{Azer\.{ı}ce}}%
+\begin{itemize}%
+  \iflang{en}{%
+  \item{Listening: B2 (Upper intermediate)*\\%
+      Reading: B1 (Intermediate)*}%
+  \item{A2 (Elementary)*}%
+  \item{A1 (Beginner)*}%
+  \item{Work experience for a month in Baku.\\%
+      Several organizations with Azerbaijani customers.}%
+  }{%
+  \item{Anlama}{Dinleme: B2 (Upper intermediate)*\\%
+      Okuma: B1 (Intermediate)*}%
+  \item{Konuşma}{A2 (Elementary)*}%
+  \item{Yazma}{A1 (Beginner)*}%
+  \item{Prat\.{ı}k}{Bakü, Azerbaycan'da bir aylık iş tecrübesi.\\%
+      Konukların Azeri olduğu çeşitli etkinliklerde görev alma.}%
+  }%
+\end{itemize}
+
+\iflang{en}{
+  \subsection{Turkish}%
+  \begin{itemize}%
+  \item{}{Native Speaker}%
+  \end{itemize}%
+}{}
+(*) Common European Framework of Reference for Languages
+
+\iflang{en}%
+{\section{Software Skills}%
+  \subsection{Graphics Software}}%
+{\section{Yazılım B\.{ı}lg\.{ı}s\.{ı}}%
+  \subsection{Graf\.{ı}k Yazılımları}}
+\begin{factlist}
+\item{\rating{5}}{\textbf{Blender 3D}}
+\item{\rating{5}}{\textbf{Inkscape}}
+\item{\rating{4}}{\textbf{ImageMagick, FFMpeg}}
+\item{\rating{5}}{\textbf{GIMP, Photoshop}}
+\item{\rating{3}}{3D Studio Max, Maya}
+\item{\rating{5}}{\textbf{BI \& Cycles Renderers}}
+\item{\rating{4}}{Luxrender, Yafaray}
+\item{\rating{5}}{\textbf{AutoCAD, DraftSight}}
+\item{\rating{3}}{Luminance HDR}
+\end{factlist}
+
+\iflang{en}%
+{\subsection{Programming Languages}}%
+{\subsection{Programlama D\.{ı}ller\.{ı}}}
+\begin{factlist}
+\item{\rating{4}}{\textbf{C / C++}}
+\item{\rating{5}}{\textbf{Common Lisp, Scheme}}
+\item{\rating{5}}{\textbf{Python, Factor}}
+\item{\rating{5}}{UNIX / Shell}
+\item{\rating{3}}{Lua, HTML5}
+\end{factlist}
+
+\iflang{en}%
+{\subsection{Development Tools \& Libraries}}%
+{\subsection{Of\.{ı}s Yazılımları}}
+\begin{factlist}
+\item{\rating{5}}{\textbf{Emacs}}
+\item{\rating{4}}{\textbf{Visual Studio}}
+\item{\rating{4}}{GCC, Clang, MSBuild}
+\item{\rating{4}}{\textbf{GDB, LLDB, Valgrind}}
+\item{\rating{3}}{Make, CMake, Gradle}
+\item{\rating{5}}{Git Version Control System}
+\item{\rating{5}}{\textbf{Cocos2d-x Game Engine (C++)}}
+\item{\rating{3}}{Xcode, Android Studio}
+\end{factlist}
+
+\iflang{en}%
+{\subsection{Operating Systems}}%
+{\subsection{İşlet\.{ı}m S\.{ı}stemler\.{ı}}}
+\begin{factlist}
+\item{\rating{5}}{\textbf{GNU/Linux (Arch, Debian)}}
+\item{\rating{5}}{\textbf{Windows XP/7/8/10}}
+\item{\rating{4}}{\textbf{macOS}}
+\end{factlist}
+
+\iflang{en}%
+{\subsection{Documentation Utilities}}%
+{\subsection{İşlet\.{ı}m S\.{ı}stemler\.{ı}}}
+\begin{factlist}
+\item{\rating{5}}{\textbf{\TeX\ / \LaTeX\ Systems}}
+\item{\rating{5}}{\textbf{Org-Mode, Markdown}}
+\item{\rating{5}}{\textbf{Doxygen, Pandoc}}
+\item{\rating{4}}{MS Office, Libre Office, Scribus}
+\end{factlist}
+
+\iflang{en}%
+{\section{Additional Information}}%
+{\section{Ek B\.{ı}lg\.{ı}ler}}
+\begin{factlist}
+  \iflang{en}{
+  \item{Hobbies}
+    {%
+      Walking,
+      Computer Science,
+      Technology Blogging,
+      Literature,
+      Charcoal Drawing}
+  \item{Communities}
+    {%
+      Free / Libre \& Open Source Software,\\%
+      Blender Network, Lisp Game Development,\\%
+      Factor Language Development}
+  }{%
+  \item{Hobiler}
+    {%
+      Bilgisayar Bilimleri,%
+      Teknoloji Yazıları,%
+      Edebiyat,%
+      Karakalem Resim}
+  \item{Topluluklar}
+    {%
+      Özgür/Açık Kaynak Kodlu Yazılım,%
+      Blender Network,%
+      Lisp Programlama Dili Oyun Geliştirme,%
+      Factor Programlama Dili Geliştirme}
+  }
+\end{factlist}%
+\vspace{0.25cm}
+\centerline{\ding{105}}
+\end{document}
