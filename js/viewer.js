@@ -5349,7 +5349,6 @@ var SecondaryToolbar = {
     // Define the toolbar buttons.
     this.toggleButton = options.toggleButton;
     this.presentationModeButton = options.presentationModeButton;
-    this.openFile = options.openFile;
     this.print = options.print;
     this.download = options.download;
     this.viewBookmark = options.viewBookmark;
@@ -5367,7 +5366,6 @@ var SecondaryToolbar = {
       // (except for toggleHandTool, hand_tool.js is responsible for it):
       { element: this.presentationModeButton,
         handler: this.presentationModeClick },
-      { element: this.openFile, handler: this.openFileClick },
       { element: this.print, handler: this.printClick },
       { element: this.download, handler: this.downloadClick },
       { element: this.viewBookmark, handler: this.viewBookmarkClick },
@@ -5390,12 +5388,6 @@ var SecondaryToolbar = {
   // Event handling functions.
   presentationModeClick: function secondaryToolbarPresentationModeClick(evt) {
     PDFViewerApplication.requestPresentationMode();
-    this.close();
-  },
-
-  openFileClick: function secondaryToolbarOpenFileClick(evt) {
-    var openFileInputName = PDFViewerApplication.appConfig.openFileInputName;
-    document.getElementById(openFileInputName).click();
     this.close();
   },
 
@@ -7967,8 +7959,6 @@ function webViewerInitialized() {
   document.body.appendChild(fileInput);
 
   if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
-    appConfig.toolbar.openFile.setAttribute('hidden', 'true');
-    appConfig.secondaryToolbar.openFile.setAttribute('hidden', 'true');
   } else {
     fileInput.value = null;
   }
@@ -8112,9 +8102,6 @@ function webViewerInitialized() {
 
   appConfig.toolbar.presentationModeButton.addEventListener('click',
     SecondaryToolbar.presentationModeClick.bind(SecondaryToolbar));
-
-  appConfig.toolbar.openFile.addEventListener('click',
-    SecondaryToolbar.openFileClick.bind(SecondaryToolbar));
 
   appConfig.toolbar.print.addEventListener('click',
     SecondaryToolbar.printClick.bind(SecondaryToolbar));
@@ -8797,7 +8784,6 @@ function getViewerConfiguration() {
       zoomIn: document.getElementById('zoomIn'),
       zoomOut: document.getElementById('zoomOut'),
       viewFind: document.getElementById('viewFind'),
-      openFile: document.getElementById('openFile'),
       print: document.getElementById('print'),
       presentationModeButton: document.getElementById('presentationMode'),
       download: document.getElementById('download'),
@@ -8808,7 +8794,6 @@ function getViewerConfiguration() {
       toggleButton: document.getElementById('secondaryToolbarToggle'),
       presentationModeButton:
         document.getElementById('secondaryPresentationMode'),
-      openFile: document.getElementById('secondaryOpenFile'),
       print: document.getElementById('secondaryPrint'),
       download: document.getElementById('secondaryDownload'),
       viewBookmark: document.getElementById('secondaryViewBookmark'),
