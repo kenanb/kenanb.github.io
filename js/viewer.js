@@ -5348,10 +5348,8 @@ var SecondaryToolbar = {
 
     // Define the toolbar buttons.
     this.toggleButton = options.toggleButton;
-    this.presentationModeButton = options.presentationModeButton;
     this.print = options.print;
     this.download = options.download;
-    this.viewBookmark = options.viewBookmark;
     this.firstPage = options.firstPage;
     this.lastPage = options.lastPage;
     this.pageRotateCw = options.pageRotateCw;
@@ -5364,11 +5362,8 @@ var SecondaryToolbar = {
       { element: this.toggleButton, handler: this.toggle },
       // All items within the secondary toolbar
       // (except for toggleHandTool, hand_tool.js is responsible for it):
-      { element: this.presentationModeButton,
-        handler: this.presentationModeClick },
       { element: this.print, handler: this.printClick },
       { element: this.download, handler: this.downloadClick },
-      { element: this.viewBookmark, handler: this.viewBookmarkClick },
       { element: this.firstPage, handler: this.firstPageClick },
       { element: this.lastPage, handler: this.lastPageClick },
       { element: this.pageRotateCw, handler: this.pageRotateCwClick },
@@ -5386,11 +5381,6 @@ var SecondaryToolbar = {
   },
 
   // Event handling functions.
-  presentationModeClick: function secondaryToolbarPresentationModeClick(evt) {
-    PDFViewerApplication.requestPresentationMode();
-    this.close();
-  },
-
   printClick: function secondaryToolbarPrintClick(evt) {
     window.print();
     this.close();
@@ -5398,10 +5388,6 @@ var SecondaryToolbar = {
 
   downloadClick: function secondaryToolbarDownloadClick(evt) {
     PDFViewerApplication.download();
-    this.close();
-  },
-
-  viewBookmarkClick: function secondaryToolbarViewBookmarkClick(evt) {
     this.close();
   },
 
@@ -8035,8 +8021,6 @@ function webViewerInitialized() {
   }
 
   if (!PDFViewerApplication.supportsFullscreen) {
-    appConfig.toolbar.presentationModeButton.classList.add('hidden');
-    appConfig.secondaryToolbar.presentationModeButton.classList.add('hidden');
   }
 
   if (PDFViewerApplication.supportsIntegratedFind) {
@@ -8099,9 +8083,6 @@ function webViewerInitialized() {
     }
     PDFViewerApplication.pdfViewer.currentScaleValue = this.value;
   });
-
-  appConfig.toolbar.presentationModeButton.addEventListener('click',
-    SecondaryToolbar.presentationModeClick.bind(SecondaryToolbar));
 
   appConfig.toolbar.print.addEventListener('click',
     SecondaryToolbar.printClick.bind(SecondaryToolbar));
@@ -8785,9 +8766,7 @@ function getViewerConfiguration() {
       zoomOut: document.getElementById('zoomOut'),
       viewFind: document.getElementById('viewFind'),
       print: document.getElementById('print'),
-      presentationModeButton: document.getElementById('presentationMode'),
       download: document.getElementById('download'),
-      viewBookmark: document.getElementById('viewBookmark'),
     },
     secondaryToolbar: {
       toolbar: document.getElementById('secondaryToolbar'),
@@ -8796,7 +8775,6 @@ function getViewerConfiguration() {
         document.getElementById('secondaryPresentationMode'),
       print: document.getElementById('secondaryPrint'),
       download: document.getElementById('secondaryDownload'),
-      viewBookmark: document.getElementById('secondaryViewBookmark'),
       firstPage: document.getElementById('firstPage'),
       lastPage: document.getElementById('lastPage'),
       pageRotateCw: document.getElementById('pageRotateCw'),
