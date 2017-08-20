@@ -7255,13 +7255,7 @@ var PDFViewerApplication = {
     }
   },
 
-  setTitle: function pdfViewSetTitle(title) {
-    if (this.isViewerEmbedded) {
-      // Embedded PDF viewers should not be changing their parent page's title.
-      return;
-    }
-    document.title = title;
-  },
+  setTitle: function pdfViewSetTitle(title) {},
 
   /**
    * Closes opened PDF document.
