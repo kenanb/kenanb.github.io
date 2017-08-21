@@ -21,7 +21,8 @@ columnsep=1.25cm]%
   amssymb,%
   multido,%
   graphicx,%
-  enumitem}
+  enumitem,%
+  fontawesome}
 
 % \setlist[itemize]{leftmargin=*}
 
@@ -81,31 +82,6 @@ columnsep=1.25cm]%
   \ifdefstrequal{\LANG}{\PIVOT}{#2}{#3}%
 }
 
-\newcommand\personal[8]{%
-  \needspace{0.5\textheight}%
-  \newdimen\boxwidth%
-  \boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
-  \colorbox[HTML]{F5DD9D}{%
-    \begin{tabularx}%
-      {\boxwidth}{c|X c}
-      \Writinghand%
-      & {#1}\smallskip \\%
-      \Telefon%
-      & {#2}\smallskip \\%
-      \Lightning%
-      & \href{http://#3}{#3}\smallskip \\%
-      \Letter%
-      & \href{mailto:#4}{#4}\smallskip \\%
-      \Letter%
-      & \href{mailto:#5}{#5}\smallskip \\%
-      \Mundus%
-      & \href{http://www.#6}{#6}\smallskip \\%
-      \Coffeecup%
-      & \href{http://www.#7}{#7}\smallskip \\%
-      \Keyboard%
-      & \href{http://www.#8}{#8}
-    \end{tabularx}}}
-
 \newcommand\textbox[1]{%
   \parbox{.333\textwidth}{#1}%
 }
@@ -148,17 +124,36 @@ columnsep=1.25cm]%
   {Game Developer \& Designer, CG Generalist, Architect}%
   {3D Görselleştirme \& Bilgisayar Grafikleri Uzmanı}}
 
-\personal%
-{\iflang{en}%
-  {Kadıköy, İstanbul (Asia) - Turkey}%
-  {Kadıköy, İstanbul (Asya) - Türkiye}}%
-{+90 (542) 5362620}
-{www.6x13.com}%
-{kenanb@6x13.com}%
-{kenanbolukbasi@gmail.com}%
-{blendernetwork.org/kenan-bolukbasi}%
-{twitter.com/kenanbolukbasi}%
-{github.com/kenanb}
+\needspace{0.5\textheight}%
+\newdimen\boxwidth%
+\boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
+\colorbox[HTML]{F5DD9D}{%
+  \begin{tabularx}%
+    {\boxwidth}{c|X c}
+    \Writinghand%
+    & {\iflang{en}%
+      {Kadıköy, İstanbul (Asia) - Turkey}%
+      {Kadıköy, İstanbul (Asya) - Türkiye}}%
+    \smallskip \\%
+    \Telefon%
+    & {+90 (542) 5362620}\smallskip \\%
+    \Letter%
+    & \href{mailto:kenanb@6x13.com}{kenanb@6x13.com}\smallskip \\%
+    \Letter%
+    & \href{mailto:kenanbolukbasi@gmail.com}{kenanbolukbasi@gmail.com}\smallskip \\%
+    \Lightning%
+    & \href{http://kenanb.com}{\faExternalLink\ kenanb.com}\ \ \href{http://6x13.com}{\faExternalLink\ 6x13.com}\smallskip \\%
+    \Mundus%
+    & \href{http://www.blendernetwork.org/kenan-bolukbasi}{\faExternalLink\ blendernetwork.org/kenan-bolukbasi}\smallskip \\%
+    \Coffeecup%
+    & \href{http://www.twitter.com/kenanbolukbasi}{\faTwitter\ kenanbolukbasi}\ \ \href{http://blog.6x13.com}{\faRss\ blog.6x13.com}\smallskip \\%
+    \Keyboard%
+    &%
+    \href{http://www.github.com/kenanb}{\faGithub\ kenanb}\ \ %
+    \href{http://www.github.com/6x13}{\faGithub\ 6x13} \ \ %
+    % \href{http://www.bitbucket.org/kenanb}{\faBitbucket\ kenanb}\ \ %
+    % \href{http://www.bitbucket.org/6x13}{\faBitbucket\ 6x13}
+  \end{tabularx}}
 
 \iflang{en}%
 {\section{Summary of Qualifications}}%
