@@ -114,6 +114,9 @@ columnsep=1.25cm]%
   \tabularx{\linewidth}{rX}}%
 {\endtabularx}
 
+\newcommand{\project}[1]{\textsc{\color{teal}#1}}
+
+
 \def\lang{en}
 \begin{document}\sloppy%
 
@@ -131,32 +134,31 @@ columnsep=1.25cm]%
   \begin{tabularx}%
     {\boxwidth}{c|X c}
     \Writinghand%
-    & {\iflang{en}%
-      {Kadıköy, İstanbul (Asia) - Turkey}%
-      {Kadıköy, İstanbul (Asya) - Türkiye}}%
+    & {\scshape \iflang{en}%
+      {Kadıköy, İstanbul - Turkey}%
+      {Kadıköy, İstanbul - Türkiye}}%
     \smallskip \\%
     \Telefon%
-    & {+90 (542) 5362620}\smallskip \\%
+    & {\footnotesize +} \oldstylenums{90} {\footnotesize (}\oldstylenums{542}{\footnotesize )} \oldstylenums{5362620}\smallskip \\%
     \Letter%
-    & \href{mailto:kenanb@6x13.com}{kenanb@6x13.com}\smallskip \\%
+    & \href{mailto:kenanb@6x13.com}{\scshape kenanb@6x13.com}\smallskip \\%
     \Letter%
-    & \href{mailto:kenanbolukbasi@gmail.com}{kenanbolukbasi@gmail.com}\smallskip \\%
+    & \href{mailto:kenanbolukbasi@gmail.com}{\scshape kenanbolukbasi@gmail.com}\smallskip \\%
     \Lightning%
-    & \href{http://kenanb.com}{\faExternalLink\ kenanb.com}\ \ %
-    \href{http://6x13.com}{\faExternalLink\ 6x13.com}\smallskip \\%
-    \Mundus%
-    & \href{http://www.blendernetwork.org/kenan-bolukbasi}%
-    {\faExternalLink\ blendernetwork.org/kenan-bolukbasi}\smallskip \\%
+    & \href{http://kenanb.com}{\scshape \faExternalLink\ kenanb.com}\ \ %
+    \href{http://6x13.com}{\scshape \faExternalLink\ 6x13.com}\ \ %
+    \href{http://www.blendernetwork.org/kenan-bolukbasi}%
+    {\scshape \faExternalLink\ bfct}\smallskip \\%
     \Coffeecup%
     & \href{http://www.twitter.com/kenanbolukbasi}%
-    {\faTwitter\ kenanbolukbasi}\ \ %
-    \href{http://blog.6x13.com}{\faRss\ blog.6x13.com}\smallskip \\%
+    {\scshape \faTwitter\ kenanbolukbasi}\ \ %
+    \href{http://blog.6x13.com}{\scshape \faRss\ blog.6x13.com}\smallskip \\%
     \Keyboard%
     &%
-    \href{http://www.github.com/kenanb}{\faGithub\ kenanb}\ \ %
-    \href{http://www.github.com/6x13}{\faGithub\ 6x13} \ \ %
-    % \href{http://www.bitbucket.org/kenanb}{\faBitbucket\ kenanb}\ \ %
-    % \href{http://www.bitbucket.org/6x13}{\faBitbucket\ 6x13}
+    \href{http://www.github.com/kenanb}{\scshape \faGithub\ kenanb}\ \ %
+    \href{http://www.github.com/6x13}{\scshape \faGithub\ 6x13} \ \ %
+    % \href{http://www.bitbucket.org/kenanb}{\scshape \faBitbucket\ kenanb}\ \ %
+    % \href{http://www.bitbucket.org/6x13}{\scshape \faBitbucket\ 6x13}
   \end{tabularx}}
 
 \iflang{en}%
@@ -277,21 +279,32 @@ columnsep=1.25cm]%
     {Jan 2015 -- [ cont'd ]}%
     {6x13 Games, İstanbul}%
     {Founder, Project Leader \& Developer}{%
-      Project leader.   Game design and development.   Graphics design
+      Project leader.   Game design  and development.   Graphic design
       and game asset creation. Prototyping, pipeline optimization.
       \begin{itemize}
       \item      Design,      development     and      artwork      of
-        WreckJumper\texttt{\small[WIP]}, forced-perspective sci-fi TBS
-        with dynamic puzzle elements.
+        \project{WreckJumper}\texttt{\small[WIP]},  forced-perspective
+        sci-fi TBS with dynamic puzzle elements.
       \item Game design, development, project management, graphics and
-        user interface design of Twiniwt, the {\color{purple} globally
-          featured} symmetrical movement puzzle.
-      \item Project management \& development of 1FPS Game Series.
+        user    interface    design    of    \project{Twiniwt},    the
+        {\color{purple}  globally featured}  free to  play symmetrical
+        movement puzzle.
+      \item Project  management \&  development of  \project{1FPS Game
+          Series}.  4 free to play  handheld console games. The titles
+        are:
+        \begin{itemize}
+        \item[-] \project{1FPS: Invaders}
+        \item[-] \project{1FPS: Vacuum}
+        \item[-] \project{1FPS: Fastfood}
+        \item[-] \project{1FPS: Graffiti}\texttt{\small[WIP]}
+        \end{itemize}
       \item Cocos2d-x based in-house cross-platform game framework.
       \item Data structure design and development of the visualization
-        module for an  architectural research project at  ITU. It aims
-        to develop facades using evolutionary algorithms.
-      \item Development of Fossicker, open source asset prospector.
+        module    for     an    architectural     research    project,
+        \project{Façade}, at  ITU.  It  aims to develop  facades using
+        evolutionary algorithms.
+      \item  Development  of  \project{Fossicker}, open  source  asset
+        prospector.
       \item Invited industry participant  at some Architectural Design
         Computing Master's Program classes at ITU.
       \end{itemize}}%
@@ -305,9 +318,12 @@ columnsep=1.25cm]%
 
       \begin{itemize}
       \item  Asset  pipeline   automation  system  (import,  lighting,
-        rendering, compositing \& atlas) for mobile RTS, Silicon Wars.
-      \item Environment art and map editor for Riot Defense game.
-      \item Pseudo 3D graphics R\&D for Football Wizard game assets.
+        rendering,   compositing    \&   atlas)   for    mobile   RTS,
+        \project{Silicon Wars}.
+      \item Environment art and  map editor for \project{Riot Defense}
+        game.
+      \item Pseudo 3D graphics R\&D for \project{Football Wizard} game
+        assets.
       \end{itemize}}%
     \xpitem%
     {Jun 2011 -- Feb 2014}%
@@ -429,7 +445,7 @@ columnsep=1.25cm]%
       game engine, C and C++.}%
   \item{2016}%
     {1FPS Retro Game Series, 6x13 Games}%
-    {3   games  that   work  on   all  popular   mobile  and   desktop
+    {4   games  that   work  on   all  popular   mobile  and   desktop
       platforms. Uses customized Cocos2d-x and C++.}%
   \item{2015}%
     {Fossicker, The Asset Prospector, 6x13 Games}%
