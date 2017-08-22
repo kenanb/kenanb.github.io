@@ -17,7 +17,6 @@ columnsep=1.25cm]%
   needspace,%
   tabularx,%
   xcolor,%
-  amssymb,%
   multido,%
   graphicx,%
   enumitem,%
@@ -33,9 +32,6 @@ columnsep=1.25cm]%
   \lccode\string''9D=`i \lccode`I=\string''19 }%
 \addto\noextrasturkish{%
   \uccode`i=`I \lccode`I=`i }
-
-\newcommand{\ding}[1]{{\fontfamily{pzd}\fontencoding{U}%
-    \fontseries{m}\fontshape{n}\selectfont\char#1}}
 
 \pagestyle{empty}
 \setlength\parindent{0pt}
@@ -309,7 +305,7 @@ columnsep=1.25cm]%
       \item Cocos2d-x based in-house cross-platform game framework.
       \item Data structure design and development of the visualization
         module    for     an    architectural     research    project,
-        \project{Façade}, at  ITU.  It  aims to develop  facades using
+        \project{Façade},   at  ITU.    It  generates   facades  using
         evolutionary algorithms.
       \item  Development  of  \project{Fossicker}, open  source  asset
         prospector.
@@ -704,5 +700,5 @@ columnsep=1.25cm]%
   }
 \end{factlist}%
 \vspace{0.25cm}
-\centerline{\ding{105}}
+\centerline{\faAsterisk}
 \end{document}
