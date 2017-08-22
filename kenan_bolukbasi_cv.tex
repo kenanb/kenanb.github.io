@@ -41,9 +41,10 @@ columnsep=1.25cm]%
 \pagestyle{empty}
 \setlength\parindent{0pt}
 \color[HTML]{303030} % Default foreground color
+\definecolor{header}{HTML}{801040}
 \definecolor{link}{HTML}{506060} % Hyperlinks
 \hypersetup{colorlinks,breaklinks,urlcolor=link,linkcolor=link}
-\setkomafont{disposition}{\color[HTML]{801010}}
+\setkomafont{disposition}{\color{header}}
 \setkomafont{section}{\scshape\Large\mdseries}
 \newcommand\rating[1]{\multido{}{#1}{\faCube}}
 \let\oldincludegraphics\includegraphics%
@@ -89,7 +90,7 @@ columnsep=1.25cm]%
 \newenvironment{xplist}{%
   \setlist{nosep}
   \newcommand\xpitem[4]{%
-    {\color[HTML]{801040}%
+    {\color{header}%
       \sc##2\hfill ##1}\\[2pt]
     {\Large\textit{##3}
       \smallskip} \\%
@@ -133,23 +134,23 @@ columnsep=1.25cm]%
 \colorbox[HTML]{F5DD9D}{%
   \begin{tabularx}%
     {\boxwidth}{c|X c}
-    \Writinghand%
+    \color{header}\Writinghand%
     & {\scshape \iflang{en}%
       {Kadıköy, İstanbul - Turkey}%
       {Kadıköy, İstanbul - Türkiye}}%
     \smallskip \\%
-    \Telefon%
+    \color{header}\Telefon%
     & {\footnotesize +} \oldstylenums{90} {\footnotesize (}\oldstylenums{542}{\footnotesize )} \oldstylenums{5362620}\smallskip \\%
-    \Letter%
+    \color{header}\Letter%
     & \href{mailto:kenanb@6x13.com}{\scshape kenanb@6x13.com}\smallskip \\%
-    \Letter%
+    \color{header}\Letter%
     & \href{mailto:kenanbolukbasi@gmail.com}{\scshape kenanbolukbasi@gmail.com}\smallskip \\%
-    \Lightning%
+    \color{header}\Lightning%
     & \href{http://kenanb.com}{\scshape \faExternalLink\ kenanb.com}\ \ %
     \href{http://6x13.com}{\scshape \faExternalLink\ 6x13.com}\ \ %
     \href{http://www.blendernetwork.org/kenan-bolukbasi}%
     {\scshape \faExternalLink\ bfct}\smallskip \\%
-    \Mundus%
+    {\small\color{header}\Industry}%
     & \textsc{Mobile:}
     \href{https://itunes.apple.com/us/developer/kenan-bolukbasi/id1177092770}{\faApple}\ \ %
     \href{https://play.google.com/store/apps/developer?id=6x13+Games}{\faAndroid}\ \ %
@@ -158,11 +159,11 @@ columnsep=1.25cm]%
     \textsc{Desktop:}
     \href{https://6x13.itch.io/}{\faLaptop}\ \ %
     \href{http://steamcommunity.com/id/6x13}{\faSteamSquare}\smallskip \\%
-    \Coffeecup%
+    \color{header}\Coffeecup%
     & \href{http://www.twitter.com/kenanbolukbasi}%
     {\scshape \faTwitter\ kenanbolukbasi}\ \ %
     \href{http://blog.6x13.com}{\scshape \faRss\ blog.6x13.com}\smallskip \\%
-    \Keyboard%
+    \color{header}\Keyboard%
     &%
     \href{http://www.github.com/kenanb}{\scshape \faGithub\ kenanb}\ \ %
     \href{http://www.github.com/6x13}{\scshape \faGithub\ 6x13} \ \ %
