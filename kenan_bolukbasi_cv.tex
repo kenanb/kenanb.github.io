@@ -110,6 +110,14 @@ columnsep=1.25cm]%
   \tabularx{\linewidth}{rX}}%
 {\endtabularx}
 
+\newenvironment{statlist}{%
+  \newdimen\unbaseline%
+  \unbaseline=\dimexpr-\baselinestretch\baselineskip\relax
+  \renewcommand\item[3]{%
+    ##1 & ##3 & \color{header}##2\\ \smallskip \\[\unbaseline]}%
+  \tabularx{\linewidth}{rl@{\extracolsep{\fill}}c}}%
+{\endtabularx}
+
 \newcommand{\project}[1]{\textsc{\color{teal}#1}}
 
 
@@ -143,7 +151,7 @@ columnsep=1.25cm]%
     & \href{http://kenanb.com}{\scshape \faExternalLink\ kenanb.com}\ \ %
     \href{http://6x13.com}{\scshape \faExternalLink\ 6x13.com}\ \ %
     \href{http://www.blendernetwork.org/kenan-bolukbasi}%
-    {\scshape \faCertificate\ bfct}\smallskip \\%
+    {\scshape \faInstitution\ bfct}\smallskip \\%
     \color{header}\faShoppingCart%
     & \textsc{Mobile:}
     \href{https://itunes.apple.com/us/developer/kenan-bolukbasi/id1177092770}{\faApple}\ \ %
@@ -291,7 +299,7 @@ columnsep=1.25cm]%
         sci-fi TBS with dynamic puzzle elements.
       \item Game design, development, project management, graphics and
         user    interface    design    of    \project{Twiniwt},    the
-        {\color{purple}  globally featured}  free to  play symmetrical
+        {\color{header}  globally featured}  free to  play symmetrical
         movement puzzle.
       \item Project  management \&  development of  \project{1FPS Game
           Series}.  4 free to play  handheld console games. The titles
@@ -442,7 +450,7 @@ columnsep=1.25cm]%
   \iflang{en}{
   \item{2017}%
     {Twiniwt Mobile Game, 6x13 Games}%
-    {An  innovative  symmetrical   movement  puzzle.   {\color{purple}
+    {An  innovative  symmetrical   movement  puzzle.   {\color{header}
         Globally featured in the  AppStore Puzzle and Board categories
         as well  as the  AppStore Turkey homepage.}   It works  on all
       popular mobile  and desktop platforms.  Uses  modified Cocos2d-x
@@ -611,61 +619,150 @@ columnsep=1.25cm]%
   \subsection{Graphics Software}}%
 {\section{Yazılım B\.{ı}lg\.{ı}s\.{ı}}%
   \subsection{Graf\.{ı}k Yazılımları}}
-\begin{factlist}
-\item{\rating{5}}{\textbf{Blender 3D}}
-\item{\rating{5}}{\textbf{Inkscape}}
-\item{\rating{4}}{\textbf{ImageMagick, FFMpeg}}
-\item{\rating{5}}{\textbf{GIMP, Photoshop}}
-\item{\rating{3}}{3D Studio Max, Maya}
-\item{\rating{5}}{\textbf{BI \& Cycles Renderers}}
-\item{\rating{4}}{Luxrender, Yafaray}
-\item{\rating{5}}{\textbf{AutoCAD, DraftSight}}
-\item{\rating{3}}{Luminance HDR}
-\end{factlist}
+\begin{statlist}
+
+\item{\rating{5}}%
+  {\faCodeFork}%
+  {\textbf{Blender 3D}}
+
+\item{\rating{5}}
+  {\faCode}%
+  {\textbf{Inkscape}}
+
+\item{\rating{4}}
+  {\faCode}%
+  {\textbf{ImageMagick, FFMpeg}}
+
+\item{\rating{5}}
+  {\faCode}%
+  {\textbf{GIMP, Photoshop}}
+
+\item{\rating{3}}
+  {}%
+  {3D Studio Max, Maya}
+
+\item{\rating{5}}
+  {\faCode}%
+  {\textbf{BI \& Cycles Renderers}}
+
+\item{\rating{4}}
+  {}%
+  {Luxrender, Yafaray}
+
+\item{\rating{5}}
+  {}%
+  {\textbf{AutoCAD, DraftSight}}
+
+\item{\rating{3}}
+  {}%
+  {Luminance HDR}
+\end{statlist}
 
 \iflang{en}%
 {\subsection{Programming Languages}}%
 {\subsection{Programlama D\.{ı}ller\.{ı}}}
-\begin{factlist}
-\item{\rating{4}}{\textbf{C / C++}}
-\item{\rating{5}}{\textbf{Common Lisp, Scheme}}
-\item{\rating{5}}{\textbf{Python, Factor}}
-\item{\rating{5}}{UNIX / Shell}
-\item{\rating{3}}{Lua, HTML5}
-\end{factlist}
+\begin{statlist}
+
+\item{\rating{4}}%
+  {}%
+  {\textbf{C / C++}}
+
+\item{\rating{5}}%
+  {\faCodeFork}%
+  {\textbf{Common Lisp, Scheme}}
+
+\item{\rating{5}}%
+  {\faCodeFork}%
+  {\textbf{Python, Factor}}
+
+\item{\rating{5}}%
+  {}%
+  {UNIX / Shell}
+
+\item{\rating{3}}%
+  {}%
+  {Lua, HTML5}
+\end{statlist}
 
 \iflang{en}%
 {\subsection{Development Tools \& Libraries}}%
 {\subsection{Of\.{ı}s Yazılımları}}
-\begin{factlist}
-\item{\rating{5}}{\textbf{Emacs}}
-\item{\rating{4}}{\textbf{Visual Studio}}
-\item{\rating{4}}{GCC, Clang, MSBuild}
-\item{\rating{4}}{\textbf{GDB, LLDB, Valgrind}}
-\item{\rating{3}}{Make, CMake, Gradle}
-\item{\rating{5}}{Git Version Control System}
-\item{\rating{5}}{\textbf{Cocos2d-x Game Engine (C++)}}
-\item{\rating{3}}{Xcode, Android Studio}
-\end{factlist}
+\begin{statlist}
+
+\item{\rating{5}}%
+  {\faCodeFork}%
+  {\textbf{Emacs}}
+
+\item{\rating{4}}%
+  {}%
+  {\textbf{Visual Studio}}
+
+\item{\rating{4}}%
+  {}%
+  {GCC, Clang, MSBuild}
+
+\item{\rating{4}}%
+  {}%
+  {\textbf{GDB, LLDB, Valgrind}}
+
+\item{\rating{3}}%
+  {\faWrench}%
+  {Make, CMake, Gradle}
+
+\item{\rating{5}}%
+  {\faWrench}%
+  {Git Version Control System}
+
+\item{\rating{5}}%
+  {\faCodeFork}%
+  {\textbf{Cocos2d-x Game Engine (C++)}}
+
+\item{\rating{3}}%
+  {}%
+  {Xcode, Android Studio}
+\end{statlist}
 
 \iflang{en}%
 {\subsection{Operating Systems}}%
 {\subsection{İşlet\.{ı}m S\.{ı}stemler\.{ı}}}
-\begin{factlist}
-\item{\rating{5}}{\textbf{GNU/Linux (Arch, Debian)}}
-\item{\rating{5}}{\textbf{Windows XP/7/8/10}}
-\item{\rating{4}}{\textbf{macOS}}
-\end{factlist}
+\begin{statlist}
+
+\item{\rating{5}}%
+  {\faCodeFork}%
+  {\textbf{GNU/Linux (Arch, Debian)}}
+
+\item{\rating{5}}%
+  {\faWrench}%
+  {\textbf{Windows XP/7/8/10}}
+
+\item{\rating{4}}%
+  {\faWrench}%
+  {\textbf{macOS}}
+
+\end{statlist}
 
 \iflang{en}%
 {\subsection{Documentation Utilities}}%
 {\subsection{İşlet\.{ı}m S\.{ı}stemler\.{ı}}}
-\begin{factlist}
-\item{\rating{5}}{\textbf{\TeX\ / \LaTeX\ Systems}}
-\item{\rating{5}}{\textbf{Org-Mode, Markdown}}
-\item{\rating{5}}{\textbf{Doxygen, Pandoc}}
-\item{\rating{4}}{MS Office, Libre Office, Scribus}
-\end{factlist}
+\begin{statlist}
+
+\item{\rating{5}}%
+  {\faCode}%
+  {\textbf{\TeX\ / \LaTeX\ Systems}}
+
+\item{\rating{5}}%
+  {\faWrench}%
+  {\textbf{Org-Mode, Markdown}}
+
+\item{\rating{5}}%
+  {}%
+  {\textbf{Doxygen, Pandoc}}
+
+\item{\rating{4}}%
+  {}%
+  {MS Office, Libre Office, Scribus}
+
+\end{statlist}
 
 \iflang{en}%
 {\section{Additional Information}}%
