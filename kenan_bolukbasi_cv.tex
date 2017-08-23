@@ -41,7 +41,20 @@ columnsep=1.25cm]%
 \hypersetup{colorlinks,breaklinks,urlcolor=link,linkcolor=link}
 \setkomafont{disposition}{\color{header}}
 \setkomafont{section}{\scshape\Large\mdseries}
-\newcommand\rating[1]{\multido{}{#1}{\faCube}}
+
+
+\newcommand{\MOD}{\faCode}
+\newcommand{\EDU}{\faGraduationCap}
+\newcommand{\USE}{\faCube}
+
+\newcommand{\stath}[1]{\color[HTML]{333333}#1}
+\newcommand{\statm}[1]{\color[HTML]{666666}#1}
+\newcommand{\statl}[1]{\color[HTML]{999999}#1}
+\newcommand{\statn}[1]{\color[HTML]{DDDDDD}#1}
+\newcommand\rating[1]{\multido{}{#1}{\USE}}
+
+\newcommand{\legend}{\color{teal}\small\hfill\scshape {\color{header}[\ \ \USE}\ Use{\color{header}\ \ |\ \ \MOD}\ Modify{\color{header}\ \ |\ \ \EDU}\ Teach{\color{header}\ \ ]}}
+
 \let\oldincludegraphics\includegraphics%
 \renewcommand{\includegraphics}[2][]{%
   \oldincludegraphics[#1]{#2}%
@@ -119,11 +132,6 @@ columnsep=1.25cm]%
 {\endtabularx}
 
 \newcommand{\project}[1]{\textsc{\color{teal}#1}}
-
-\newcommand{\stath}{\color[HTML]{333333}\faCode}
-\newcommand{\statm}{\color[HTML]{666666}\faCode}
-\newcommand{\statl}{\color[HTML]{999999}\faCode}
-\newcommand{\statn}{\color[HTML]{DDDDDD}\faCode}
 
 \def\lang{en}
 \begin{document}\sloppy%
@@ -619,46 +627,46 @@ columnsep=1.25cm]%
 (*) Common European Framework of Reference for Languages
 
 \iflang{en}%
-{\section{Software Skills}%
+{\section{Software Skills \legend}%
   \subsection{Graphics Software}}%
 {\section{Yazılım B\.{ı}lg\.{ı}s\.{ı}}%
   \subsection{Graf\.{ı}k Yazılımları}}
 \begin{statlist}
 
 \item{\rating{5}}%
-  {\stath}%
+  {\stath{\MOD}\ \stath{\EDU}}%
   {\textbf{Blender 3D}}
 
 \item{\rating{5}}
-  {\statm}%
+  {\statm{\MOD}\ \stath{\EDU}}%
   {\textbf{Inkscape}}
 
 \item{\rating{4}}
-  {\statm}%
+  {\statm{\MOD}\ \statl{\EDU}}%
   {\textbf{ImageMagick, FFMpeg}}
 
 \item{\rating{5}}
-  {\statm}%
+  {\statm{\MOD}\ \statl{\EDU}}%
   {\textbf{GIMP, Photoshop}}
 
 \item{\rating{3}}
-  {\statn}%
+  {\statn{\MOD}\ \statn{\EDU}}%
   {3D Studio Max, Maya}
 
 \item{\rating{5}}
-  {\statm}%
+  {\statm{\MOD}\ \stath{\EDU}}%
   {\textbf{BI \& Cycles Renderers}}
 
 \item{\rating{4}}
-  {\statn}%
+  {\statn{\MOD}\ \stath{\EDU}}%
   {Luxrender, Yafaray}
 
 \item{\rating{5}}
-  {\statn}%
+  {\statn{\MOD}\ \statn{\EDU}}%
   {\textbf{AutoCAD, DraftSight}}
 
 \item{\rating{3}}
-  {\statn}%
+  {\statn{\MOD}\ \statn{\EDU}}%
   {Luminance HDR}
 \end{statlist}
 
@@ -668,23 +676,23 @@ columnsep=1.25cm]%
 \begin{statlist}
 
 \item{\rating{4}}%
-  {\statn}%
+  {\statn{\MOD}\ \statl{\EDU}}%
   {\textbf{C / C++}}
 
 \item{\rating{5}}%
-  {\stath}%
+  {\stath{\MOD}\ \stath{\EDU}}%
   {\textbf{Common Lisp, Scheme}}
 
 \item{\rating{5}}%
-  {\stath}%
+  {\statl{\MOD}\ \stath{\EDU}}%
   {\textbf{Python, Factor}}
 
 \item{\rating{5}}%
-  {\statn}%
+  {\statn{\MOD}\ \statl{\EDU}}%
   {UNIX / Shell}
 
 \item{\rating{3}}%
-  {\statn}%
+  {\statn{\MOD}\ \statn{\EDU}}%
   {Lua, HTML5}
 \end{statlist}
 
@@ -694,35 +702,35 @@ columnsep=1.25cm]%
 \begin{statlist}
 
 \item{\rating{5}}%
-  {\stath}%
+  {\stath{\MOD}\ \stath{\EDU}}%
   {\textbf{Emacs}}
 
 \item{\rating{4}}%
-  {\statn}%
+  {\statn{\MOD}\ \statl{\EDU}}%
   {\textbf{Visual Studio}}
 
 \item{\rating{4}}%
-  {\statn}%
+  {\statn{\MOD}\ \statn{\EDU}}%
   {GCC, Clang, MSBuild}
 
 \item{\rating{4}}%
-  {\statn}%
+  {\statn{\MOD}\ \statl{\EDU}}%
   {\textbf{GDB, LLDB, Valgrind}}
 
 \item{\rating{3}}%
-  {\statl}%
+  {\statl{\MOD}\ \statn{\EDU}}%
   {Make, CMake, Gradle}
 
 \item{\rating{5}}%
-  {\statl}%
+  {\statl{\MOD}\ \statm{\EDU}}%
   {Git Version Control System}
 
 \item{\rating{5}}%
-  {\stath}%
+  {\stath{\MOD}\ \stath{\EDU}}%
   {\textbf{Cocos2d-x Game Engine (C++)}}
 
 \item{\rating{3}}%
-  {\statn}%
+  {\statn{\MOD}\ \statn{\EDU}}%
   {Xcode, Android Studio}
 \end{statlist}
 
@@ -732,15 +740,15 @@ columnsep=1.25cm]%
 \begin{statlist}
 
 \item{\rating{5}}%
-  {\stath}%
+  {\stath{\MOD}\ \stath{\EDU}}%
   {\textbf{GNU/Linux (Arch, Debian)}}
 
 \item{\rating{5}}%
-  {\statl}%
+  {\statl{\MOD}\ \statm{\EDU}}%
   {\textbf{Windows XP/7/8/10}}
 
 \item{\rating{4}}%
-  {\statl}%
+  {\statl{\MOD}\ \statn{\EDU}}%
   {\textbf{macOS}}
 
 \end{statlist}
@@ -751,19 +759,19 @@ columnsep=1.25cm]%
 \begin{statlist}
 
 \item{\rating{5}}%
-  {\statm}%
+  {\statm{\MOD}\ \stath{\EDU}}%
   {\textbf{\TeX\ / \LaTeX\ Systems}}
 
 \item{\rating{5}}%
-  {\statl}%
+  {\statl{\MOD}\ \stath{\EDU}}%
   {\textbf{Org-Mode, Markdown}}
 
 \item{\rating{5}}%
-  {\statn}%
+  {\statn{\MOD}\ \statm{\EDU}}%
   {\textbf{Doxygen, Pandoc}}
 
 \item{\rating{4}}%
-  {\statn}%
+  {\statn{\MOD}\ \statn{\EDU}}%
   {MS Office, Libre Office, Scribus}
 
 \end{statlist}
