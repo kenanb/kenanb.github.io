@@ -1,0 +1,387 @@
+\documentclass[8pt]{scrartcl}
+\setcounter{secnumdepth}{-1}
+
+\usepackage[%
+hmargin=1.25cm,%
+vmargin=1.25cm,%
+twocolumn,%
+columnsep=1.25cm]%
+{geometry}
+
+\usepackage[overload]{textcase}
+
+\usepackage{%
+  bookman,%
+  etoolbox,%
+  hyperref,%
+  needspace,%
+  tabularx,%
+  xcolor,%
+  multido,%
+  graphicx,%
+  enumitem,%
+  fontawesome}
+
+\setlist[itemize]{leftmargin=0.5cm}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian, turkish, english]{babel}
+\addto\extrasturkish{%
+  \uccode`i=\string''9D \uccode\string''19 = `I%
+  \lccode\string''9D=`i \lccode`I=\string''19 }%
+\addto\noextrasturkish{%
+  \uccode`i=`I \lccode`I=`i }
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\color[HTML]{303030} % Default foreground color
+\definecolor{header}{HTML}{801040}
+\definecolor{link}{HTML}{506060} % Hyperlinks
+\hypersetup{colorlinks,breaklinks,urlcolor=link,linkcolor=link}
+\setkomafont{disposition}{\color{header}}
+\setkomafont{section}{\scshape\Large\mdseries}
+
+
+\newcommand{\MOD}{\faCode}
+\newcommand{\EDU}{\faGraduationCap}
+\newcommand{\USE}{\faCube}
+
+\newcommand{\stath}[1]{\color[HTML]{333333}#1}
+\newcommand{\statm}[1]{\color[HTML]{666666}#1}
+\newcommand{\statl}[1]{\color[HTML]{999999}#1}
+\newcommand{\statn}[1]{\color[HTML]{DDDDDD}#1}
+\newcommand\rating[1]{\multido{}{#1}{\USE}}
+
+\newcommand{\legend}{\color{teal}\small\hfill\scshape {\color{header}[\ \ \USE}\ Use{\color{header}\ \ |\ \ \MOD}\ Modify{\color{header}\ \ |\ \ \EDU}\ Teach{\color{header}\ \ ]}}
+
+\let\oldincludegraphics\includegraphics%
+\renewcommand{\includegraphics}[2][]{%
+  \oldincludegraphics[#1]{#2}%
+  \shorthandon{=}%
+}
+\pretocmd{\includegraphics}{\shorthandoff{=}}{}{}
+
+\newcommand\nameandtitle[2]{%
+  \twocolumn[%
+  \begin{center}
+    \vskip-\lastskip%
+    {\usekomafont{part} #1}
+    \bigskip
+  \end{center}]}
+
+\let\oldsection\section%
+\renewcommand\section[2][]{%
+  \oldsection[#1]{#2}%
+  \newdimen\raising%
+  \raising=\dimexpr-0.7\baselineskip\relax%
+  \vskip\raising\hrule height 0.4pt\vskip-\raising}
+
+\let\oldsubsection\subsection%
+\renewcommand\subsection[2][]{%
+  \oldsection[#1]{\normalsize #2}%
+  \newdimen\raising%
+  \raising=\dimexpr-0.7\baselineskip\relax%
+  \vskip\raising\hrule height 0.4pt\vskip-\raising}
+
+\newcommand\iflang[3]{%
+  \edef\LANG{\lang}%
+  \edef\PIVOT{\detokenize{#1}}%
+  \ifdefstrequal{\LANG}{\PIVOT}{#2}{#3}%
+}
+
+\newcommand\textbox[1]{%
+  \parbox{.333\textwidth}{#1}%
+}
+
+\newenvironment{xplist}{%
+  \newcommand\xpitem[4]{%
+    {\color{header}%
+      \sc##2\hfill ##1}\\[2pt]
+    {\Large\textit{##3}
+      \smallskip} \\%
+    {##4\medskip}%
+
+  }}%
+{\setlist{}}
+
+\newenvironment{yearlist}{%
+  \renewcommand\item[4][]{%
+    {\sc ##2} & {\bfseries ##3} \\
+    \ifstrempty{##1}{}{& {\sc ##1} \\}
+    & {\textit{##4}}\vspace{5pt}\\}
+  \tabularx{\linewidth}{rX}}%
+{\endtabularx}
+
+\newenvironment{factlist}{%
+  \newdimen\unbaseline%
+  \unbaseline=\dimexpr-\baselinestretch\baselineskip\relax
+  \renewcommand\item[2]{%
+    \textsc{##1} & {\raggedright##2\smallskip\\}\\[\unbaseline]}%
+  \tabularx{\linewidth}{rX}}%
+{\endtabularx}
+
+\newenvironment{statlist}{%
+  \newdimen\unbaseline%
+  \unbaseline=\dimexpr-\baselinestretch\baselineskip\relax
+  \renewcommand\item[3]{%
+    ##1 & ##2 & ##3\\ \smallskip \\[\unbaseline]}%
+  \tabularx{\linewidth}{rcl}}%
+{\endtabularx}
+
+\newcommand{\project}[1]{\textsc{\color{teal}#1}}
+
+\def\lang{en}
+\begin{document}\sloppy%
+
+\nameandtitle{Kenan Bölükbaşı - \textit{Game Developer}\\%
+  {\color{link}\large\foreignlanguage{bulgarian}{%
+      Керан Андреев Давидов | Keran Andreev Davidov}}}%
+{Game Developer}
+
+\needspace{0.5\textheight}%
+\newdimen\boxwidth%
+\boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
+\colorbox[HTML]{F5DD9D}{%
+  \begin{tabularx}%
+    {\boxwidth}{c|X c}
+    \color{header}\faHome%
+    & {\scshape \iflang{en}{İstanbul - Turkey}{İstanbul - Türkiye}}\smallskip \\%
+    \color{header}\faPhone%
+    & {\footnotesize +} \oldstylenums{90} {\footnotesize (}\oldstylenums{542}{\footnotesize )} \oldstylenums{5362620}\smallskip \\%
+    \color{header}\faSkype%
+    & {\scshape kenanbolukbasi}\smallskip \\%
+    \color{header}\faEnvelope%
+    & \href{mailto:kenanb@6x13.com}{\scshape kenanb@6x13.com}\smallskip \\%
+    \color{header}\faEnvelope%
+    & \href{mailto:kenanbolukbasi@gmail.com}{\scshape kenanbolukbasi@gmail.com}\smallskip \\%
+    \color{header}\faGlobe%
+    & \href{http://kenanb.com}{\scshape \faExternalLink\ kenanb.com}\ \ %
+    \href{http://6x13.com}{\scshape \faExternalLink\ 6x13.com}\ \ %
+    \href{http://www.blendernetwork.org/kenan-bolukbasi}%
+    {\scshape \faInstitution\ bfct}\smallskip \\%
+    \color{header}\faShoppingCart%
+    & \textsc{Mobile:}
+    \href{https://itunes.apple.com/us/developer/kenan-bolukbasi/id1177092770}{\faApple}\ \ %
+    \href{https://play.google.com/store/apps/developer?id=6x13+Games}{\faAndroid}\ \ %
+    \href{https://www.microsoft.com/en-us/search/result.aspx?q=Kenan+Bolukbasi+6x13+Games}{\faWindows}\ \ %
+    \href{https://www.amazon.com/s/ref=bl_sr_mobile-apps?_encoding=UTF8\&field-brandtextbin=6x13\%20Games\&node=2350149011}{\small\faAmazon}\ \ %
+    \textsc{Desktop:}
+    \href{https://6x13.itch.io/}{\faLaptop}\ \ %
+    \href{http://steamcommunity.com/id/6x13}{\faSteamSquare}\smallskip \\%
+    \color{header}\faCoffee%
+    & \href{http://www.twitter.com/kenanbolukbasi}%
+    {\scshape \faTwitter\ kenanbolukbasi}\ \ %
+    \href{http://blog.6x13.com}{\scshape \faRss\ blog.6x13.com}\smallskip \\%
+    \color{header}\faCode%
+    &%
+    \href{http://www.github.com/kenanb}{\scshape \faGithub\ kenanb}\ \ %
+    \href{http://www.github.com/6x13}{\scshape \faGithub\ 6x13} \ \ %
+    % \href{http://www.bitbucket.org/kenanb}{\scshape \faBitbucket\ kenanb}\ \ %
+    % \href{http://www.bitbucket.org/6x13}{\scshape \faBitbucket\ 6x13}
+  \end{tabularx}}
+
+\section{Summary of Qualifications}
+Theoretical and applied knowledge in programming, design and media.
+Broad  experience   in  project  management.   Experience   in  3D
+{\color{link}  (mesh, solid  \& CAD)},  2D {\color{link}  (raster,
+  vector)}, and parametric graphics as well as asset pipelines and
+tools       development.         Blender       3D       specialist
+\href{https://www.blendernetwork.org/kenan-bolukbasi}{(Blender
+  Foundation Certified Trainer)}%
+
+\section{Personal Details}
+\begin{factlist}
+  \item{Citizenship}
+    {EU (Bulgarian), Turkish}
+  % \item{Driver's licence}
+  %   {B Class}
+  \item{Date \& Place of Birth}
+    {28th January 1987, Bulgaria}
+\end{factlist}
+
+\section{Education}
+\begin{yearlist}
+  \item{2005 -- 2017}
+    {Architecture (B.Arch.)}
+    {Istanbul Technical University,
+      ITU School of Architecture,
+      İstanbul}
+  \item{2001 -- 2005}
+    {High School (Science and Math)}
+    {Nilüfer Milli Piyango Anatolian High School,
+      Bursa}
+\end{yearlist}
+
+\section{Communication skills}%
+\begin{factlist}%
+  \item{English}{Mastery (CEFR: C2)}%
+  \item{Turkish}{Native Speaker}%
+\end{factlist}
+
+\section{Highlights}%
+\begin{yearlist}
+\item{2017}%
+  {Introduction to Modern Computer Graphics}%
+  {Guest Lecturer, ITU School of Architecture, İstanbul}%
+\item{2017}%
+  {Twiniwt Mobile Game, 6x13 Games}%
+  { Innovative symmetrical  movement puzzle.  {\color{header} Globally
+      featured on AppStore (Turkey  Home, Puzzle, Board)  \& Play
+      Store Indie Highlights.}  Cocos2d-x, C and C++.}%
+\item{2016}%
+  {1FPS Retro Game Series, 6x13 Games}%
+  {4 mobile arcade games. Cocos2d-x, C++.}%
+\item{2016}%
+  {Architecture Program Senior Design Project}%
+  {Architect, ITU School of Architecture, İstanbul}%
+\item{2015}
+  {Game Developers Conference EU 2015}
+  {Conference Associate, UBM Tech, Cologne}
+\item{2015}%
+  {Fossicker, The Asset Prospector, 6x13 Games}%
+  {Designer \& Programmer, Development Tool}%
+\item{2014}%
+  {\href{http://youtu.be/E03cFLsoICY}%
+    {Prototyping \& Optimizing Game Asset Workflow}}%
+  {Speaker, Blender Conference, Amsterdam}%
+\item{2014}%
+  {\href{http://youtu.be/lFymoldmij4}%
+    {Automated Sprite Rendering System in Blender}}%
+  {Speaker, Libre Graphics Meeting, Leipzig}%
+\item{2014}%
+  {Blender Python Programming Workshop}%
+  {Moderator, BlendFX Studios, Leipzig}%
+\item{2014}%
+  {Riot Game Map Editor, Ekseriya}%
+  {Blender Game Engine and Python.}%
+\item{2013}%
+  {2.5D Sprite Automation System, Ekseriya}%
+  {Python, Blender3D and Shell.}%
+\end{yearlist}
+
+\vfill
+
+\section{Work Experience}
+Game developer for the last 5+ years.
+Organizational planning and international event management for 4 years.
+\bigskip{}
+
+\begin{xplist}
+    \xpitem%
+    {Jan 2015 -- [ cont'd ]}%
+    {6x13 Games, İstanbul}%
+    {Founder, Project Leader \& Developer}{%
+      Project leader.   Game design  and development.   Graphic design
+      and game asset creation. Prototyping, pipeline optimization.
+      \begin{itemize}
+      \item Game design, game \& level editor development, project
+        lead, graphics and user interface design of \project{Twiniwt},
+        the innovative, free to play symmetrical movement puzzle.
+      \item Project  management \&  development of  \project{1FPS Game
+          Series}.  4 free to play  handheld console games. The titles
+        are:
+        \begin{itemize}
+        \item[-] \project{1FPS: Invaders}
+        \item[-] \project{1FPS: Vacuum}
+        \item[-] \project{1FPS: Fastfood}
+        \item[-] \project{1FPS: Graffiti}\texttt{\small[WIP]}
+        \end{itemize}
+      \item Cocos2d-x based in-house cross-platform game framework.
+      \item      Design,      development     and      artwork      of
+        \project{WreckJumper}\texttt{\small[WIP]},  forced-perspective
+        sci-fi TBS with dynamic puzzle elements.
+      \item Data structure design  \& development of the visualization
+        module for a research project, \project{Façade}, at ITU.
+      \item  Development  of  \project{Fossicker}, open  source  asset
+        prospector.
+      \item  Guest lecturer  for  M.Arch., M.Sc.  in Design  Computing
+        courses and B.Arch. design studios at ITU.
+      \end{itemize}}%
+    \xpitem%
+    {Aug 2013 -- Jan 2015}%
+    {Ekseriya Studios, İstanbul}%
+    {Graphics Department Lead \& TD}{%
+      Decision making  on graphics  technology and  workflow. Workflow
+      optimization software development.  Game asset creation, shading
+      and lighting. Pipeline integration and prototyping.
+
+      \begin{itemize}
+      \item  Pipeline   automation  system for    mobile   RTS,
+        \project{Silicon Wars}.
+      \item Environment art and  map editor for \project{Riot Defense}
+        game.
+      \item 2.5D graphics R\&D for \project{Football Wizard} game
+        assets.
+      \end{itemize}}%
+\end{xplist}
+\iflang{en}%
+{\section{Software Skills \legend}%
+\iflang{en}%
+{\subsection{Programming Languages}}%
+{\subsection{Programlama D\.{ı}ller\.{ı}}}
+\begin{statlist}
+
+\item{\rating{4}}%
+  {\statn{\MOD}\ \statl{\EDU}}%
+  {\textbf{C / C++}}
+
+\item{\rating{5}}%
+  {\stath{\MOD}\ \stath{\EDU}}%
+  {\textbf{Common Lisp, Scheme}}
+
+\item{\rating{5}}%
+  {\statl{\MOD}\ \stath{\EDU}}%
+  {\textbf{Python, Shell, Factor}}
+
+\item{\rating{3}}%
+  {\statn{\MOD}\ \statn{\EDU}}%
+  {Lua, HTML5}
+\end{statlist}
+
+\iflang{en}%
+{\subsection{Development Tools \& Libraries}}%
+{\subsection{Of\.{ı}s Yazılımları}}
+\begin{statlist}
+\item{\rating{5}}%
+  {\stath{\MOD}\ \stath{\EDU}}%
+  {\textbf{Emacs}}
+
+\item{\rating{5}}%
+  {\stath{\MOD}\ \stath{\EDU}}%
+  {\textbf{Cocos2d-x Game Engine (C++)}}
+
+\item{\rating{4}}%
+  {\statn{\MOD}\ \statl{\EDU}}%
+  {\textbf{VS, Xcode, Android Studio}}
+
+\item{\rating{4}}%
+  {\statn{\MOD}\ \statn{\EDU}}%
+  {\textbf{Compilers \& Debuggers}}
+
+\item{\rating{5}}%
+  {\statl{\MOD}\ \statm{\EDU}}%
+  {Git Version Control System}
+
+\item{\rating{5}}%
+  {\statn{\MOD}\ \statm{\EDU}}%
+  {\textbf{Doxygen, Org-Mode, Pandoc}}
+\end{statlist}
+
+\subsection{Graphics Software}}%
+{\section{Yazılım B\.{ı}lg\.{ı}s\.{ı}}%
+  \subsection{Graf\.{ı}k Yazılımları}}
+\begin{statlist}
+\item{\rating{5}}%
+  {\stath{\MOD}\ \stath{\EDU}}%
+  {\textbf{Blender 3D, Inkscape, GIMP}}
+
+\item{\rating{5}}
+  {\statm{\MOD}\ \statl{\EDU}}%
+  {\textbf{ImageMagick, FFMpeg}}
+
+\item{\rating{3}}
+  {\statn{\MOD}\ \statn{\EDU}}%
+  {3D Studio Max, Maya}
+\end{statlist}
+\end{document}
