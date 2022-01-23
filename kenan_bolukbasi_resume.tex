@@ -66,7 +66,8 @@ columnsep=1.25cm]%
   \twocolumn[%
   \begin{center}
     \vskip-\lastskip%
-    {\usekomafont{part} #1}
+    {\usekomafont{part} #1} \medskip \\%
+    {\fontfamily{pzc}\selectfont\Huge #2}
     \bigskip
   \end{center}]}
 
@@ -83,12 +84,6 @@ columnsep=1.25cm]%
   \newdimen\raising%
   \raising=\dimexpr-0.7\baselineskip\relax%
   \vskip\raising\hrule height 0.4pt\vskip-\raising}
-
-\newcommand\iflang[3]{%
-  \edef\LANG{\lang}%
-  \edef\PIVOT{\detokenize{#1}}%
-  \ifdefstrequal{\LANG}{\PIVOT}{#2}{#3}%
-}
 
 \newcommand\textbox[1]{%
   \parbox{.333\textwidth}{#1}%
@@ -134,10 +129,10 @@ columnsep=1.25cm]%
 \def\lang{en}
 \begin{document}\sloppy%
 
-\nameandtitle{Kenan Bölükbaşı - \textit{Game Developer}\\%
-  {\color{link}\large\foreignlanguage{bulgarian}{%
-      Керан Андреев Давидов | Keran Andreev Davidov}}}%
-{Game Developer}
+\nameandtitle{Kenan Bölükbaşı\\%
+  \vspace{0.25cm}
+  {\color{link}\large{Keran Davidov}}}%
+  {Software Engineer, Game Developer \& Designer, Architect}
 
 \needspace{0.5\textheight}%
 \newdimen\boxwidth%
@@ -146,58 +141,50 @@ columnsep=1.25cm]%
   \begin{tabularx}%
     {\boxwidth}{c|X c}
     \color{header}\faHome%
-    & {\scshape \iflang{en}{İstanbul - Turkey}{İstanbul - Türkiye}}\smallskip \\%
-    \color{header}\faPhone%
-    & {\footnotesize +} \oldstylenums{90} {\footnotesize (}\oldstylenums{542}{\footnotesize )} \oldstylenums{5362620}\smallskip \\%
-    \color{header}\faSkype%
-    & {\scshape kenanbolukbasi}\smallskip \\%
-    \color{header}\faEnvelope%
-    & \href{mailto:kenanb@6x13.com}{\scshape kenanb@6x13.com}\smallskip \\%
+    & \scshape İstanbul - Turkey\smallskip \\%
+    %% \color{header}\faPhone%
+    %% & {\footnotesize +} \oldstylenums{..} {\footnotesize (}\oldstylenums{..}{\footnotesize )} \oldstylenums{.......}\smallskip \\%
     \color{header}\faEnvelope%
     & \href{mailto:kenanbolukbasi@gmail.com}{\scshape kenanbolukbasi@gmail.com}\smallskip \\%
     \color{header}\faGlobe%
     & \href{http://kenanb.com}{\scshape \faExternalLink\ kenanb.com}\ \ %
-    \href{http://6x13.com}{\scshape \faExternalLink\ 6x13.com}\ \ %
-    \href{http://www.blendernetwork.org/kenan-bolukbasi}%
-    {\scshape \faInstitution\ bfct}\smallskip \\%
+    \href{http://6x13.com}{\scshape \faExternalLink\ 6x13.com}%% \ \ %
+    \smallskip \\%
     \color{header}\faShoppingCart%
-    & \textsc{Mobile:}
-    \href{https://itunes.apple.com/us/developer/kenan-bolukbasi/id1177092770}{\faApple}\ \ %
-    \href{https://play.google.com/store/apps/developer?id=6x13+Games}{\faAndroid}\ \ %
+    & \textsc{Windows:}
     \href{https://www.microsoft.com/en-us/search/result.aspx?q=Kenan+Bolukbasi+6x13+Games}{\faWindows}\ \ %
-    \href{https://www.amazon.com/s/ref=bl_sr_mobile-apps?_encoding=UTF8\&field-brandtextbin=6x13\%20Games\&node=2350149011}{\small\faAmazon}\ \ %
-    \textsc{Desktop:}
+    \textsc{Itch.io:}
     \href{https://6x13.itch.io/}{\faLaptop}\ \ %
-    \href{http://steamcommunity.com/id/6x13}{\faSteamSquare}\smallskip \\%
+    %% \href{http://steamcommunity.com/id/6x13}{\faSteamSquare}
+    \smallskip \\%
     \color{header}\faCoffee%
     & \href{http://www.twitter.com/kenanbolukbasi}%
     {\scshape \faTwitter\ kenanbolukbasi}\ \ %
-    \href{http://blog.6x13.com}{\scshape \faRss\ blog.6x13.com}\smallskip \\%
+    %% \href{http://blog.6x13.com}{\scshape \faRss\ blog.6x13.com}
+    \smallskip \\%
     \color{header}\faCode%
     &%
     \href{http://www.github.com/kenanb}{\scshape \faGithub\ kenanb}\ \ %
     \href{http://www.github.com/6x13}{\scshape \faGithub\ 6x13} \ \ %
-    % \href{http://www.bitbucket.org/kenanb}{\scshape \faBitbucket\ kenanb}\ \ %
-    % \href{http://www.bitbucket.org/6x13}{\scshape \faBitbucket\ 6x13}
   \end{tabularx}}
 
 \section{Summary of Qualifications}
-Theoretical and applied knowledge in programming, design and media.
-Broad  experience   in  project  management.   Experience   in  3D
-{\color{link}  (mesh, solid  \& CAD)},  2D {\color{link}  (raster,
-  vector)}, and parametric graphics as well as asset pipelines and
-tools       development.         Blender       3D       specialist
-\href{https://www.blendernetwork.org/kenan-bolukbasi}{(Blender
-  Foundation Certified Trainer)}%
+\textcolor{black}{Software  Engineer  with  in-depth knowledge  in  3D
+  scene  description, surface  representation  and processing.  Highly
+  experienced   in  compiled   languages,  and   low-level  debugging.
+  Highly experienced in project pipeline and tools development.
+  Experienced in project management.\\%
+  \\%
+  Previously:  Game developer,  and designer,  Blender 3D  specialist,
+  Blender  Foundation  Certified  Trainer.   Theoretical  and  applied
+  knowledge in design and media.}%
 
 \section{Personal Details}
 \begin{factlist}
   \item{Citizenship}
     {EU (Bulgarian), Turkish}
-  % \item{Driver's licence}
-  %   {B Class}
-  \item{Date \& Place of Birth}
-    {28th January 1987, Bulgaria}
+  \item{Driver's licence}
+    {B Class}
 \end{factlist}
 
 \section{Education}
@@ -221,6 +208,11 @@ tools       development.         Blender       3D       specialist
 
 \section{Highlights}%
 \begin{yearlist}
+  \item{2021}%
+    {NOP Mode}%
+    {A  code  annotation  and   navigation  system,  designed  to  be
+      supported  by IDE  and  editor plugins. Aims to improve  code
+      navigation for reading code.}%
 \item{2017}%
   {Introduction to Modern Computer Graphics}%
   {Guest Lecturer, ITU School of Architecture, İstanbul}%
@@ -232,12 +224,6 @@ tools       development.         Blender       3D       specialist
 \item{2016}%
   {1FPS Retro Game Series, 6x13 Games}%
   {4 mobile arcade games. Cocos2d-x, C++.}%
-\item{2016}%
-  {Architecture Program Senior Design Project}%
-  {Architect, ITU School of Architecture, İstanbul}%
-\item{2015}
-  {Game Developers Conference EU 2015}
-  {Conference Associate, UBM Tech, Cologne}
 \item{2015}%
   {Fossicker, The Asset Prospector, 6x13 Games}%
   {Designer \& Programmer, Development Tool}%
@@ -255,21 +241,23 @@ tools       development.         Blender       3D       specialist
 \item{2014}%
   {Riot Game Map Editor, Ekseriya}%
   {Blender Game Engine and Python.}%
-\item{2013}%
-  {2.5D Sprite Automation System, Ekseriya}%
-  {Python, Blender3D and Shell.}%
 \end{yearlist}
 
 \vfill
 
 \section{Work Experience}
-Game developer for the last 5+ years.
-Organizational planning and international event management for 4 years.
-\bigskip{}
-
 \begin{xplist}
     \xpitem%
-    {Jan 2015 -- [ cont'd ]}%
+    {Jan 2018 -- [ cont'd ]}%
+    {Weta Digital (WetaFX), Wellington}%
+    {Software Engineer}{%
+      Software Engineer at Pipeline Department.
+      \begin{itemize}
+      \item Development and integration of various technologies for visual effects pipelines.
+      \item Development of visual effects artist focused tools, developer focused tools and software libraries.
+      \end{itemize}}%
+    \xpitem%
+    {Jan 2015 -- Dec 2017}%
     {6x13 Games, İstanbul}%
     {Founder, Project Leader \& Developer}{%
       Project leader.   Game design  and development.   Graphic design
@@ -277,22 +265,19 @@ Organizational planning and international event management for 4 years.
       \begin{itemize}
       \item Game design, game \& level editor development, project
         lead, graphics and user interface design of \project{Twiniwt},
-        the innovative, free to play symmetrical movement puzzle.
+        the innovative, free to play symmetrical movement puzzle.\\
+        {\color{header}Globally featured on both AppStore and Play
+          Store}.
       \item Project  management \&  development of  \project{1FPS Game
-          Series}.  4 free to play  handheld console games. The titles
-        are:
-        \begin{itemize}
-        \item[-] \project{1FPS: Invaders}
-        \item[-] \project{1FPS: Vacuum}
-        \item[-] \project{1FPS: Fastfood}
-        \item[-] \project{1FPS: Graffiti}\texttt{\small[WIP]}
-        \end{itemize}
+        Series}.  4 mobile F2P games: \project{1FPS: Invaders}, %
+        \project{1FPS: Vacuum}, \project{1FPS: Fastfood}, %
+        \project{1FPS: Graffiti}\texttt{\small[WIP]}
       \item Cocos2d-x based in-house cross-platform game framework.
       \item      Design,      development     and      artwork      of
         \project{WreckJumper}\texttt{\small[WIP]},  forced-perspective
         sci-fi TBS with dynamic puzzle elements.
-      \item Data structure design  \& development of the visualization
-        module for a research project, \project{Façade}, at ITU.
+      \item Visualization module for an architectural research project
+        (for evolutionary-algoritm driven facade generation) at ITU.
       \item  Development  of  \project{Fossicker}, open  source  asset
         prospector.
       \item  Guest lecturer  for  M.Arch., M.Sc.  in Design  Computing
@@ -302,28 +287,24 @@ Organizational planning and international event management for 4 years.
     {Aug 2013 -- Jan 2015}%
     {Ekseriya Studios, İstanbul}%
     {Graphics Department Lead \& TD}{%
-      Decision making  on graphics  technology and  workflow. Workflow
-      optimization software development.  Game asset creation, shading
-      and lighting. Pipeline integration and prototyping.
+      Decision making on graphics technology and workflow.  Tools and
+      pipeline development. Prototyping. Asset shading, lighting.
 
       \begin{itemize}
-      \item  Pipeline   automation  system for    mobile   RTS,
+      \item  Asset  pipeline   automation  system  (import,  lighting,
+        rendering,   compositing    \&   atlas)   for    mobile   RTS,
         \project{Silicon Wars}.
       \item Environment art and  map editor for \project{Riot Defense}
         game.
-      \item 2.5D graphics R\&D for \project{Football Wizard} game
-        assets.
+      \item Pseudo 3D graphics R\&D for \project{Football Wizard} game.
       \end{itemize}}%
 \end{xplist}
-\iflang{en}%
-{\section{Software Skills \legend}%
-\iflang{en}%
-{\subsection{Programming Languages}}%
-{\subsection{Programlama D\.{ı}ller\.{ı}}}
+\section{Software Skills \legend}
+\subsection{Programming Languages}
 \begin{statlist}
 
-\item{\rating{4}}%
-  {\statn{\MOD}\ \statl{\EDU}}%
+\item{\rating{5}}%
+  {\statn{\MOD}\ \stath{\EDU}}%
   {\textbf{C / C++}}
 
 \item{\rating{5}}%
@@ -332,56 +313,45 @@ Organizational planning and international event management for 4 years.
 
 \item{\rating{5}}%
   {\statl{\MOD}\ \stath{\EDU}}%
-  {\textbf{Python, Shell, Factor}}
-
-\item{\rating{3}}%
-  {\statn{\MOD}\ \statn{\EDU}}%
-  {Lua, HTML5}
+  {\textbf{Python, UNIX Shell}}
 \end{statlist}
 
-\iflang{en}%
-{\subsection{Development Tools \& Libraries}}%
-{\subsection{Of\.{ı}s Yazılımları}}
+\subsection{Development Tools \& Libraries}
 \begin{statlist}
 \item{\rating{5}}%
   {\stath{\MOD}\ \stath{\EDU}}%
   {\textbf{Emacs}}
 
-\item{\rating{5}}%
-  {\stath{\MOD}\ \stath{\EDU}}%
-  {\textbf{Cocos2d-x Game Engine (C++)}}
-
 \item{\rating{4}}%
   {\statn{\MOD}\ \statl{\EDU}}%
-  {\textbf{VS, Xcode, Android Studio}}
+  {\textbf{Visual Studio}}
 
-\item{\rating{4}}%
-  {\statn{\MOD}\ \statn{\EDU}}%
+\item{\rating{5}}%
+  {\statm{\MOD}\ \stath{\EDU}}%
   {\textbf{Compilers \& Debuggers}}
 
 \item{\rating{5}}%
-  {\statl{\MOD}\ \statm{\EDU}}%
-  {Git Version Control System}
-
-\item{\rating{5}}%
-  {\statn{\MOD}\ \statm{\EDU}}%
-  {\textbf{Doxygen, Org-Mode, Pandoc}}
+  {\statl{\MOD}\ \stath{\EDU}}%
+  {\textbf{Git} Version Control System}
 \end{statlist}
 
 \subsection{Graphics Software}}%
-{\section{Yazılım B\.{ı}lg\.{ı}s\.{ı}}%
-  \subsection{Graf\.{ı}k Yazılımları}}
 \begin{statlist}
+
 \item{\rating{5}}%
   {\stath{\MOD}\ \stath{\EDU}}%
-  {\textbf{Blender 3D, Inkscape, GIMP}}
+  {\textbf{Blender 3D}}
 
 \item{\rating{5}}
-  {\statm{\MOD}\ \statl{\EDU}}%
-  {\textbf{ImageMagick, FFMpeg}}
+  {\stath{\MOD}\ \stath{\EDU}}%
+  {\textbf{USD}}
+
+\item{\rating{5}}
+  {\statl{\MOD}\ \stath{\EDU}}%
+  {\textbf{GIMP}, \textbf{Inkscape}, ImageMagick}
 
 \item{\rating{3}}
-  {\statn{\MOD}\ \statn{\EDU}}%
-  {3D Studio Max, Maya}
+  {\statm{\MOD}\ \statn{\EDU}}%
+  {Maya, Houdini}
 \end{statlist}
 \end{document}
