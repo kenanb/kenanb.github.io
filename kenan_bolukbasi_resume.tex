@@ -90,14 +90,18 @@ columnsep=1.25cm]%
 }
 
 \newenvironment{xplist}{%
-  \newcommand\xpitem[4]{%
+  % \setlist{nosep}
+  \newcommand\xpitem[5]{%
     {\color{header}%
-      \sc##2\hfill ##1}\\[2pt]
-    {\Large\textit{##3}
-      \smallskip} \\%
-    {##4\medskip}%
+      \sc\textbf{##2}\hfill ##1}\\[2pt]
+    {\textbf{\textit{##4}}
+      \smallskip}%
+    {\color{header}%
+      \sc\hfill ##3} \\%
+    {##5\bigskip}%
 
-  }}%
+  }
+}%
 {\setlist{}}
 
 \newenvironment{yearlist}{%
@@ -176,8 +180,7 @@ columnsep=1.25cm]%
   Experienced in project management.\\%
   \\%
   Previously:  Game developer,  and designer,  Blender 3D  specialist,
-  Blender  Foundation  Certified  Trainer.   Theoretical  and  applied
-  knowledge in design and media.}%
+  Blender  Foundation  Certified  Trainer.}%
 
 \section{Personal Details}
 \begin{factlist}
@@ -206,41 +209,44 @@ columnsep=1.25cm]%
   \item{Turkish}{Native Speaker}%
 \end{factlist}
 
-\section{Highlights}%
+\section{Highlights}
+\subsection{Film Credits}
 \begin{yearlist}
-  \item{2021}%
-    {NOP Mode}%
-    {A  code  annotation  and   navigation  system,  designed  to  be
-      supported  by IDE  and  editor plugins. Aims to improve  code
-      navigation for reading code.}%
-\item{2017}%
-  {Introduction to Modern Computer Graphics}%
-  {Guest Lecturer, ITU School of Architecture, İstanbul}%
-\item{2017}%
-  {Twiniwt Mobile Game, 6x13 Games}%
-  {Innovative symmetrical  movement puzzle.  {\color{header} Globally
-   featured on AppStore (Turkey  Home, Puzzle, Board)  \& Play
-   Store Indie Highlights.}  Cocos2d-x, C and C++.}%
-\item{2016}%
-  {1FPS Retro Game Series, 6x13 Games}%
-  {4 mobile arcade games. Cocos2d-x, C++.}%
-\item{2015}%
-  {Fossicker, The Asset Prospector, 6x13 Games}%
-  {Designer \& Programmer, Development Tool}%
+\item{2019}%
+  {Avengers: Endgame}%
+  {Weta Digital - Technology and Research}%
+\end{yearlist}
+
+\subsection{Conference Talks \& Workshops}
+\begin{yearlist}
 \item{2014}%
   {\href{http://youtu.be/E03cFLsoICY}%
     {Prototyping \& Optimizing Game Asset Workflow}}%
-  {Speaker, Blender Conference, Amsterdam}%
+  {Blender Conference, Amsterdam}%
 \item{2014}%
   {\href{http://youtu.be/lFymoldmij4}%
     {Automated Sprite Rendering System in Blender}}%
-  {Speaker, Libre Graphics Meeting, Leipzig}%
+  {Libre Graphics Meeting, Leipzig}%
 \item{2014}%
   {Blender Python Programming Workshop}%
-  {Moderator, BlendFX Studios, Leipzig}%
-\item{2014}%
-  {Riot Game Map Editor, Ekseriya}%
-  {Blender Game Engine and Python.}%
+  {BlendFX Studios, Leipzig}%
+\end{yearlist}
+
+\subsection{Software Projects}
+\begin{yearlist}
+\item{2021}%
+  {NOP Mode}%
+  {A  code  annotation  and   navigation  system.}%
+\item{2017}%
+  {Twiniwt Mobile Game, 6x13 Games}%
+  {Innovative symmetrical  movement puzzle. {\color{header} Featured on AppStore \& Play
+   Store Indie Highlights.} C++.}%
+\item{2016}%
+  {1FPS Retro Game Series, 6x13 Games}%
+  {4 mobile arcade games. C++.}%
+\item{2015}%
+  {Fossicker, The Asset Prospector, 6x13 Games}%
+  {Designer \& Programmer, Development Tool}%
 \end{yearlist}
 
 \vfill
@@ -248,8 +254,15 @@ columnsep=1.25cm]%
 \section{Work Experience}
 \begin{xplist}
     \xpitem%
-    {Jan 2018 -- [ cont'd ]}%
-    {Weta Digital (WetaFX), Wellington}%
+    {Mar 2022 -- [ cont'd ]}%
+    {Unity}%
+    {Wellington}%
+    {Software Engineer}{%
+      Software Engineer at Weta Digital - Pipeline Department.}%
+    \xpitem%
+    {Jan 2018 -- Mar 2022}%
+    {Weta Digital{\color{black}|}Wētā FX}%
+    {Wellington}%
     {Software Engineer}{%
       Software Engineer at Pipeline Department.
       \begin{itemize}
@@ -258,7 +271,8 @@ columnsep=1.25cm]%
       \end{itemize}}%
     \xpitem%
     {Jan 2015 -- Dec 2017}%
-    {6x13 Games, İstanbul}%
+    {6x13 Games}%
+    {İstanbul}%
     {Founder, Project Leader \& Developer}{%
       Project leader.   Game design  and development.   Graphic design
       and game asset creation. Prototyping, pipeline optimization.
@@ -280,12 +294,11 @@ columnsep=1.25cm]%
         (for evolutionary-algoritm driven facade generation) at ITU.
       \item  Development  of  \project{Fossicker}, open  source  asset
         prospector.
-      \item  Guest lecturer  for  M.Arch., M.Sc.  in Design  Computing
-        courses and B.Arch. design studios at ITU.
       \end{itemize}}%
     \xpitem%
     {Aug 2013 -- Jan 2015}%
-    {Ekseriya Studios, İstanbul}%
+    {Ekseriya Studios}%
+    {İstanbul}%
     {Graphics Department Lead \& TD}{%
       Decision making on graphics technology and workflow.  Tools and
       pipeline development. Prototyping. Asset shading, lighting.
@@ -296,7 +309,6 @@ columnsep=1.25cm]%
         \project{Silicon Wars}.
       \item Environment art and  map editor for \project{Riot Defense}
         game.
-      \item Pseudo 3D graphics R\&D for \project{Football Wizard} game.
       \end{itemize}}%
 \end{xplist}
 \section{Software Skills \legend}
