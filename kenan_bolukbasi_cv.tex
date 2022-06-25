@@ -91,14 +91,17 @@ columnsep=1.25cm]%
 
 \newenvironment{xplist}{%
   % \setlist{nosep}
-  \newcommand\xpitem[4]{%
+  \newcommand\xpitem[5]{%
     {\color{header}%
-      \sc##2\hfill ##1}\\[2pt]
-    {\Large\textit{##3}
-      \smallskip} \\%
-    {##4\bigskip}%
+      \sc\textbf{##2}\hfill ##1}\\[2pt]
+    {\textbf{\textit{##4}}
+      \smallskip}%
+    {\color{header}%
+      \sc\hfill ##3} \\%
+    {##5\bigskip}%
 
-  }}%
+  }
+}%
 {\setlist{}}
 
 \newenvironment{yearlist}{%
@@ -247,8 +250,15 @@ columnsep=1.25cm]%
 \section{Work Experience}
 \begin{xplist}
     \xpitem%
-    {Jan 2018 -- [ cont'd ]}%
-    {Weta Digital (WetaFX), Wellington}%
+    {Mar 2022 -- [ cont'd ]}%
+    {Unity}%
+    {Wellington}%
+    {Software Engineer}{%
+      Software Engineer at Weta Digital - Pipeline Department.}%
+    \xpitem%
+    {Jan 2018 -- Mar 2022}%
+    {Weta Digital{\color{black}|}Wētā FX}%
+    {Wellington}%
     {Software Engineer}{%
       Software Engineer at Pipeline Department.
       \begin{itemize}
@@ -257,7 +267,8 @@ columnsep=1.25cm]%
       \end{itemize}}%
     \xpitem%
     {Jan 2015 -- Dec 2017}%
-    {6x13 Games, İstanbul}%
+    {6x13 Games}%
+    {İstanbul}%
     {Founder, Project Leader \& Developer}{%
       Project leader.   Game design  and development.   Graphic design
       and game asset creation. Prototyping, pipeline optimization.
@@ -284,10 +295,10 @@ columnsep=1.25cm]%
       \end{itemize}}%
     \xpitem%
     {Aug 2013 -- Jan 2015}%
-    {Ekseriya Studios, İstanbul}%
+    {Ekseriya Studios}%
+    {İstanbul}%
     {Graphics Department Lead \& TD}{%
-      Decision making on graphics technology and workflow.  Tools and
-      pipeline development. Prototyping. Asset shading, lighting.
+      Graphics technology and workflow decisions.  Tools \& pipeline development. Prototyping. Asset shading, lighting.
 
       \begin{itemize}
       \item  Asset  pipeline   automation  system  (import,  lighting,
@@ -299,31 +310,28 @@ columnsep=1.25cm]%
       \end{itemize}}%
     \xpitem%
     {Jun 2011 -- Feb 2014}%
-    {Freelance, İstanbul}%
+    {Freelance}%
+    {İstanbul}%
     {Visualization Artist}{%
-      Archviz  for various  firms.   Modeling \&  rendering of  office
-      furniture catalog of Bürosit as well as indoor visualizations.}%
+      Architectural and product visualization for various firms.}%
     \xpitem%
     {Aug 2011 -- Sep 2011}%
-    {Efor Events \& Simmetrico, Baku}%
+    {Efor Events \& Simmetrico}%
+    {Baku}%
     {Assistant Site Manager}{%
-      Construction site management of a  large steel structure for the
-      wedding event of Azerbaijani  President's daughter,
-      in   a   multinational   (Italian,   Turkish   \&   Azerbaijani)
-      environment.}%
+      Construction site management of the steel structure built for a VIP event.}%
     \xpitem%
     {Jul 2010 -- Apr 2013}%
-    {Efor Events, İstanbul}%
+    {Efor Events}%
+    {İstanbul}%
     {Event Supervisor}{%
-      Workflow  \&  stage manager.   Major  events:  Windows 8  Turkey
-      Launch,  Kenan  Doğulu  concert,  VIP trip  to  Czech  Republic.
-      Clients: Microsoft, TeliaSonera, Huawei, Volvo, Doğuş, Soyak.}%
+      Workflow  \&  stage manager for major events. Clients include: Microsoft, TeliaSonera, Huawei, Volvo.}%
     \xpitem%
     {Sep 2009 -- Nov 2009}%
-    {Aşçıoğlu İnşaat, İstanbul}%
+    {Aşçıoğlu İnşaat}%
+    {İstanbul}%
     {Assistant Site Manager, Internship}{%
-      Application  supervision   at  Acıbadem  Hospital   building  of
-      Selenium Twins (BJK Süleyman Seba Complex) construction site.}%
+      Application  supervision at construction of hospital building of Selenium Twins complex.}%
 \end{xplist}
 
 \section{Software Skills \legend}
